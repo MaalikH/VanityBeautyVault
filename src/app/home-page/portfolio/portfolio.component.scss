@@ -1,0 +1,52 @@
+.portfolio {
+  padding: 72px 0 0 0;
+  background-color: black;
+  color: white;
+}
+
+.breakline {
+  color: white;
+}
+
+.portfolio-images {
+  padding-top: 72px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.row {
+  margin-right: 0;
+}
+
+
+.landscapeImage {
+  width: 100%;
+}
+
+.portraitImage {
+  height: 50vh;
+  width: 100%;
+}
+
+.image-grid {
+  padding: 0px;
+}
+
+
+.wrap {
+  position:relative;
+  background: linear-gradient(to right, black, rgba(98, 101, 228, 0) 90%);
+}
+
+.wrap:before {
+  content:"";
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background: rgba(0,0,0,0.25);
+  z-index:999;
+}

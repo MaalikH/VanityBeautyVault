@@ -1,0 +1,20 @@
+.overlay {
+  background: #FF7575;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+  opacity: .5;
+}
+
+.stats {
+  background-color: #FF7575;
+}
+
+.stat {
+  color: white;
+  opacity: 1 !important;
+  padding: 50px 0 50px 0;
+}
+
+
+.stat-title {
+  font-weight: 900;
+}

@@ -1,0 +1,55 @@
+.jumbotron-fluid {
+  height: 105vh;
+  display: flex;
+  text-align: center;
+  margin-bottom: 0;
+  color: white;
+  background-color: black;
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+  }
+
+  .icon {
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+  }
+
+  .script {
+    font-family: BrookeSmith;
+  }
+
+  .back {
+    font-size: 264px;
+    font-family: Vanity;
+  }
+
+
+  .title {
+    font-size: 148px;
+  }
+
+  // Small devices (landscape phones, 576px and up)
+  @media (max-width: 576px) {
+    .center {
+      height: 200px;
+    }
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) { }
+
+}

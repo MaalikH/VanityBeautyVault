@@ -1,0 +1,38 @@
+.container-fluid {
+  background-color: black;
+  padding-top: 85px;
+  color: white;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link.active {
+  background-color: transparent;
+  border-bottom: 1px solid #FF7575;
+  border-radius: 0px;
+}
+
+.services {
+  padding-top: 45px;
+  padding-bottom: 45px;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #FF7575;
+    }
+  }
+}
+
+.service {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  padding-top: 15px;
+}
+
+
