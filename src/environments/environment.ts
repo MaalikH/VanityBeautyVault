@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAFgWV6rAdle_qL8AR0TZa_Z_apv0MSaj8',
+    authDomain: 'vanitybeautyvault.firebaseapp.com',
+    databaseURL: 'https://vanitybeautyvault.firebaseio.com',
+    projectId: 'vanitybeautyvault',
+    storageBucket: 'vanitybeautyvault.appspot.com',
+    messagingSenderId: '779300710003'
+  }
 };
 
 /*

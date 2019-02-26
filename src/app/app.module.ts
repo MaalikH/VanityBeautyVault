@@ -16,6 +16,10 @@ import { PortfolioComponent } from './home-page/portfolio/portfolio.component';
 import { PortfolioImageComponent } from './home-page/portfolio-image/portfolio-image.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import { SubscribeComponent } from './home-page/subscribe/subscribe.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { SubscribeComponent } from './home-page/subscribe/subscribe.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

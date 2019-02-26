@@ -10,8 +10,12 @@ $(function() {
   // overlap allows sparkles to migrate... watch out for other dom elements though.
   $(".sparkley").sparkleh({
     color: ['#FF7575', 'gold'],
-    count: 100,
-    overlap: 10
+    count: 0
+  });
+
+  $(".sparkley1").sparkleh({
+    color: ['#FF7575', 'gold'],
+    count: 40
   });
 
   // here we create fuscia sparkles
