@@ -15,6 +15,7 @@ import { StatsComponent } from './home-page/stats/stats.component';
 import { PortfolioComponent } from './home-page/portfolio/portfolio.component';
 import { PortfolioImageComponent } from './home-page/portfolio-image/portfolio-image.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
+import { SubscribeComponent } from './home-page/subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ServicesPageComponent } from './services-page/services-page.component';
     StatsComponent,
     PortfolioComponent,
     PortfolioImageComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,

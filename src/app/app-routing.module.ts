@@ -15,12 +15,20 @@ const routes: Routes = [
   },
   {
     path: 'services',
-    component: ServicesPageComponent
+    component: ServicesPageComponent,
+  },
+  {
+    path: 'services/:service',
+    component: ServicesPageComponent,
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+  })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -1,31 +1,59 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto mx-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/home']">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" href="#">PORTFOLIO</a>
+        <a class="nav-link" href="#">GALLERY</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/services']">SERVICES</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" href="#">SHOP</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" href="#">CONTACT</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">MAKE AN APPOINTMENT</a>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" [routerLink]="['active']">
+        <a class="nav-link" href="https://www.styleseat.com/m/p/1420823?utm_source=google&utm_campaign=client_atl_brand_extensions&utm_medium=cpc">MAKE AN APPOINTMENT</a>
       </li>
     </ul>
   </div>
 </nav>
-
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>
+<footer>
+  <div class="container-fluid">
+  <div class="row text-center footer">
+    <div class="col-md-4">
+      <img class="footer-logo" src="../assets/home/VBSLOGO.jpg">
+    </div>
+    <div class="col-md-4 justify-content-center align-self-center">
+      <div class="row text-center">
+        <div class="col-md-3">
+        <a [routerLink]="['/services']">HOME</a>
+        </div>
+        <div class="col-md-3">
+          <a [routerLink]="['/services']">SERVICES</a>
+        </div>
+        <div class="col-md-3">
+          <a [routerLink]="['/services']">GALLERY</a>
+        </div>
+        <div class="col-md-3">
+          <a [routerLink]="['/services']">CONTACT</a>
+        </div>
+      </div>
+      </div>
+    <div class="col-md-4 justify-content-center align-self-center">
+      <img class="icon" src="../assets/common/instagram-256.png">
+      <img class="icon" src="../assets/common/facebook-256.png">
+      <img class="icon" src="../assets/common/appointment-reminders-256.png">
+    </div>
+  </div>
+  </div>
+</footer>

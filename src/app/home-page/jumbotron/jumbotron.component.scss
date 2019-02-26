@@ -10,9 +10,10 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 101;
+    transform: translate(-50%, -45%);
+    z-index: 2;
   }
+
 
   .icon {
     font-size: 50px;
@@ -43,8 +44,17 @@
     }
   }
 
-  // Medium devices (tablets, 768px and up)
-  @media (min-width: 768px) {  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .center {
+      height: 300px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .center {
+      height: 400px;
+    }
+  }
 
   // Large devices (desktops, 992px and up)
   @media (min-width: 992px) {  }

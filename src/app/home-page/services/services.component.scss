@@ -14,4 +14,17 @@
   .about-image {
     height: 100px;
   }
+
+  .sparkley {
+    backgro
+
+    &:hover {
+      background: white;
+      color: transparentize( black , 0.2 );
+
+    }
+
+  }
+
+
 }

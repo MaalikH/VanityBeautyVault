@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {ServicesPageService} from '../../services-page/services-page.service';
 
 @Component({
   selector: 'app-services',
@@ -9,10 +10,15 @@ export class ServicesComponent implements OnInit {
 
   services = ['Training', 'Eyelash Extensions', 'Microblading', 'Waxing'];
 
-  constructor() { }
+  constructor(private servicesPageService: ServicesPageService) { }
 
   ngOnInit() {
 
   }
+
+  servicesButtonClicked() {
+    this.servicesPageService.setSelectedService('all');
+  }
+
 
 }

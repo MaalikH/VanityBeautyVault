@@ -31,7 +31,9 @@
               "./node_modules/animate.css/animate.css"
 
             ],
-            "scripts": []
+            "scripts": [
+              "src/sparkley.js"
+            ]
           },
           "configurations": {
             "production": {

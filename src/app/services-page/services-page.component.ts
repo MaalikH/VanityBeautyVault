@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ServicesModel} from '../models/services.model';
+import _ from 'lodash';
+import {ServicesPageService} from './services-page.service';
+import '../../sparkley';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-services-page',
@@ -8,7 +12,8 @@ import {ServicesModel} from '../models/services.model';
 })
 export class ServicesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicesPageService: ServicesPageService, private route: ActivatedRoute) {
+  }
 
   services: ServicesModel[] = [
     {
@@ -185,17 +190,28 @@ export class ServicesPageComponent implements OnInit {
       serviceLink: 'https://www.styleseat.com/m/p/1420823/booking/service/4840151/schedule?utm_source=google&utm_campaign=client_atl_brand_extensions&utm_medium=cpc',
       serviceType: 'training'
     },
-    ];
+  ];
 
   filteredServices: ServicesModel[] = [];
-  selectedService = 'all'
+  selectedService = 'all';
 
   ngOnInit() {
-    this.filteredServices = this.services;
+    this.route.paramMap.subscribe((params) => {
+      this.selectedService = params.get('service');
+      console.log('SELECTED SERVICE', this.selectedService);
+      this.filterServices(this.selectedService);
+    });
   }
+
 
   filterServices(type: string) {
-    console.log('TYPE', type);
+    this.selectedService = type;
+    if (type === 'all' || type === null) {
+      this.filteredServices = this.services;
+    } else {
+      this.filteredServices = _.filter(this.services, {'serviceType': type});
+    }
   }
-
 }
+
+
