@@ -42,6 +42,6 @@ export class AppComponent implements OnInit {
       }
     });
 
-    this.firebase.updateItem({item2: 'king32'}, 'item/1item/2item');
+    this.firebase.deleteItem('item');
   }
 }

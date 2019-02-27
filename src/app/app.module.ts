@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     PortfolioComponent,
     PortfolioImageComponent,
     ServicesPageComponent,
-    SubscribeComponent
+    SubscribeComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
