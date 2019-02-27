@@ -2,7 +2,6 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ServicesModel} from '../models/services.model';
 import _ from 'lodash';
 import {ServicesPageService} from './services-page.service';
-import '../../sparkley';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

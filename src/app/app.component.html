@@ -9,10 +9,10 @@
         <a class="nav-link" [routerLink]="['/home']">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" href="#">GALLERY</a>
+        <a class="nav-link" [routerLink]="['/services']">SERVICES</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/services']">SERVICES</a>
+        <a class="nav-link" href="#">GALLERY</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/contact']" href="#">CONTACT</a>
@@ -36,7 +36,7 @@
     <div class="col-md-4 justify-content-center align-self-center">
       <div class="row text-center">
         <div class="col-md-3">
-        <a [routerLink]="['/services']">HOME</a>
+        <a [routerLink]="['/home']">HOME</a>
         </div>
         <div class="col-md-3">
           <a [routerLink]="['/services']">SERVICES</a>
@@ -45,14 +45,20 @@
           <a [routerLink]="['/services']">GALLERY</a>
         </div>
         <div class="col-md-3">
-          <a [routerLink]="['/services']">CONTACT</a>
+          <a [routerLink]="['/contact']">CONTACT</a>
         </div>
       </div>
       </div>
     <div class="col-md-4 justify-content-center align-self-center">
-      <img class="icon" src="../assets/common/instagram-256.png">
-      <img class="icon" src="../assets/common/facebook-256.png">
-      <img class="icon" src="../assets/common/appointment-reminders-256.png">
+      <a [href]="(links | async)?.instagramLink">
+        <img class="icon" src="../assets/common/instagram-256.png">
+      </a>
+      <a [href]="(links | async)?.facebookLink">
+        <img class="icon" src="../assets/common/facebook-256.png">
+      </a>
+      <a [href]="(links | async)?.acuityLink">
+        <img class="icon" src="../assets/common/appointment-reminders-256.png">
+      </a>
     </div>
   </div>
   </div>

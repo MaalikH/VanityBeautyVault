@@ -10,7 +10,7 @@ export class ContactPageComponent implements OnInit {
 
   contactMessage: ContactModel;
   phone: string;
-  email: string
+  email: string;
 
   constructor() {
     this.contactMessage = new class implements ContactModel {

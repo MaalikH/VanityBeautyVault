@@ -10,7 +10,7 @@ $(function() {
   // overlap allows sparkles to migrate... watch out for other dom elements though.
   $(".sparkley").sparkleh({
     color: ['#FF7575', 'gold'],
-    count: 0
+    count: 20
   });
 
   $(".sparkley1").sparkleh({
@@ -18,6 +18,7 @@ $(function() {
     count: 40
   });
 
+  /**
   // here we create fuscia sparkles
   $("h1").sparkleh({
     count: 80,
@@ -37,7 +38,7 @@ $(function() {
     color: ['#FF7575', 'gold'],
     speed: 0.05
   });
-
+**/
 
   // an array can be passed, too for colours
   // for an image, the image needs to be fully loaded to set

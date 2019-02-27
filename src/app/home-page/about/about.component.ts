@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {FirebaseService} from '../../services/firebase.service';
+import {Observable} from 'rxjs';
+import {FirebaseObjectObservable} from '@angular/fire/database-deprecated';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -6,8 +11,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss', '../../app.component.scss']
 })
 export class AboutComponent implements OnInit {
+  @Input() paragraph: Observable<string>;
+  item: Observable<string>;
 
-  constructor() { }
+  constructor(private router: Router, private firebaseService: FirebaseService, private db: AngularFireDatabase) { }
 
   ngOnInit() {
   }

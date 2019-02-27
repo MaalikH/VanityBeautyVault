@@ -2,8 +2,8 @@
   <a [routerLink]="['/services']">
   <div class="row">
     <div class="col-12 text-center">
-      <h1 class="display-4">GALLERY</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industrys</p>
+      <h1 class="display-4">{{ (sectionInfo | async)?.title}}</h1>
+      <p>{{ (sectionInfo | async)?.info }}</p>
     </div>
   </div>
     <div class="row wrap">

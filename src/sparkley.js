@@ -10,16 +10,15 @@ $(function() {
   // overlap allows sparkles to migrate... watch out for other dom elements though.
   $(".sparkley").sparkleh({
     color: ['#FF7575', 'gold'],
-    count: 100,
+    count: 20,
     overlap: 10
   });
 
   // here we create fuscia sparkles
-  $("h1").sparkleh({
-    count: 80,
-    color: ['#FF7575', 'gold']
-  });
-
+  //$("h1").sparkleh({
+  //  count: 80,
+  //  color: ['#FF7575', 'gold']
+ // });
 
 
   $("p").sparkleh({
@@ -27,6 +26,7 @@ $(function() {
     color: ['#FF7575', 'gold'],
     speed: 0.05
   });
+
 
   $(".sparkleBtn").sparkleh({
     count: 20,
@@ -39,6 +39,8 @@ $(function() {
   // for an image, the image needs to be fully loaded to set
   // the canvas to it's height/width.
   // speed allows us to control... the ... velocity
+
+  /**
   $("#image").imagesLoaded( function() {
     $(".img").sparkleh({
       count: 25,
@@ -47,6 +49,7 @@ $(function() {
     });
   });
 
+   **/
 
 });
 

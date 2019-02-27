@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  aboutParagraph;
+  servicesInfo;
+  services;
+  trainingInfo;
+  galleryInfo;
+  statsInfo;
+  subscribeInfo;
+
+  constructor(private fbService: FirebaseService) { }
 
   ngOnInit() {
+    this.aboutParagraph = this.fbService.getItem('home/about');
+    this.servicesInfo = this.fbService.getItem('home/services');
+    this.services = this.fbService.getList('home/services/services');
+    this.trainingInfo = this.fbService.getItem('home/training');
+    this.galleryInfo = this.fbService.getItem('home/gallery');
+    this.statsInfo = this.fbService.getList('home/stats');
+    this.subscribeInfo = this.fbService.getItem('home/subscribe');
   }
 
 }

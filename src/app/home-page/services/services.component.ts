@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ServicesPageService} from '../../services-page/services-page.service';
+import {Observable} from 'rxjs';
+import {FirebaseService} from '../../services/firebase.service';
+import {AngularFireDatabase} from '@angular/fire/database';
+import { map } from 'rxjs/operators';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -8,12 +13,13 @@ import {ServicesPageService} from '../../services-page/services-page.service';
 })
 export class ServicesComponent implements OnInit {
 
-  services = ['Training', 'Eyelash Extensions', 'Microblading', 'Waxing'];
+  serviced = ['Training', 'Eyelash Extensions', 'Microblading', 'Waxing'];
+  @Input() sectionInfo: Observable<any>;
+  @Input() services: any;
 
-  constructor(private servicesPageService: ServicesPageService) { }
+  constructor(private servicesPageService: ServicesPageService, private fbService: FirebaseService, private db: AngularFireDatabase, private router: Router) { }
 
   ngOnInit() {
-
   }
 
   servicesButtonClicked() {

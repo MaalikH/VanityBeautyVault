@@ -14,31 +14,36 @@ import {FirebaseService} from './services/firebase.service';
 export class AppComponent implements OnInit {
   title = 'VanityBeautyVault';
   item: Observable<any>;
-  items: Observable<any[]>;
-  itemRef: AngularFireObject<any>;
-  itemsRef: AngularFireList<any[]>;
+  links;
+  instagramLink: string;
+  facebookLink: string;
+  acuityLink: string;
 
   constructor(
     private router: Router,
     private db: AngularFireDatabase,
     private firebase: FirebaseService
   ) {
-
   }
 
   ngOnInit() {
+    this.links = this.firebase.getItem('common');
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        if (document.getElementById('custom_js') != null) {
-          document.getElementById('custom_js').remove();
-        }
-        const node = document.createElement('script');
-        node.src = 'assets/sparkley.js';
-        node.type = 'text/javascript';
-        node.async = false;
-        node.id = 'custom_js';
-        node.charset = 'utf-8';
-        document.getElementsByTagName('head')[0].appendChild(node);
+        setTimeout( function () {
+          console.log('FUNCTION RAN');
+          if (document.getElementById('custom_js') != null) {
+            document.getElementById('custom_js').remove();
+          }
+          const node = document.createElement('script');
+          node.src = 'assets/sparkley.js';
+          node.type = 'text/javascript';
+          node.async = false;
+          node.id = 'custom_js';
+          node.charset = 'utf-8';
+          document.getElementsByTagName('head')[0].appendChild(node);
+        }, 2000);
+
       }
     });
 

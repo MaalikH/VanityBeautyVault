@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ServicesPageService} from '../../services-page/services-page.service';
 
 @Component({
@@ -7,6 +7,8 @@ import {ServicesPageService} from '../../services-page/services-page.service';
     styleUrls: ['./training.component.scss', '../../app.component.scss']
 })
 export class TrainingComponent implements OnInit {
+
+  @Input() sectionInfo;
 
   constructor(private servicePageService: ServicesPageService ) { }
 
