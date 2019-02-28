@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <span class="navbar-brand col-md-12 col-md-12 mr-0" href="#">Vanity Lash</span>
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item" (click)="onLinkClick('home')" [ngClass]="{'active': activeLink === 'home'}">
+            <a class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('gallery')" [ngClass]="{'active': activeLink === 'gallery'}">
+            <a class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('services')" [ngClass]="{'active': activeLink === 'services'}">
+            <a class="nav-link">Services</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('contact')" [ngClass]="{'active': activeLink === 'contact'}">
+            <a class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('inquiries')" [ngClass]="{'active': activeLink === 'inquiries'}">
+              <a class="nav-link">Contact Inquiries</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('email')" [ngClass]="{'active': activeLink === 'email'}">
+              <a class="nav-link">Email List</a>
+          </li>
+          <li class="nav-item" (click)="onLinkClick('analytics')" [ngClass]="{'active': activeLink === 'analytics'}">
+              <a class="nav-link">Analytics</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-10 offset-md-2 dashboard-content">
+      content here
+    </div>
+  </div>
+</div>

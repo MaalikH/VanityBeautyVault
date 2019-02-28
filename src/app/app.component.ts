@@ -4,9 +4,10 @@ import {AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular/
 import {FirebaseDatabase} from '@angular/fire';
 import {Observable} from 'rxjs';
 import {debounceTime, map} from 'rxjs/operators';
-import {FirebaseService} from './services/firebase.service';
-import {AlertService} from './services/alert.service';
+import {FirebaseService} from './services/firebase-service/firebase.service';
+import {AlertService} from './services/alert-service/alert.service';
 import {AlertModel} from './models/alert.model';
+import {NavbarService} from './services/navbar-service/navbar.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,9 @@ import {AlertModel} from './models/alert.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  showNavbar = true;
   title = 'VanityBeautyVault';
   links;
-  instagramLink: string;
-  facebookLink: string;
-  acuityLink: string;
   alert: AlertModel = {
     type: 'success',
     message: null,
@@ -31,7 +30,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private db: AngularFireDatabase,
     private firebase: FirebaseService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private navbarService: NavbarService
   ) {
   }
 
@@ -55,6 +55,10 @@ export class AppComponent implements OnInit {
 
       }
     });
+
+    this.navbarService.navbar.subscribe((showNavbar: boolean) => {
+      this.showNavbar = showNavbar;
+    })
 
     this.alertService.alert.subscribe((alert: AlertModel) => {
       this.alert = alert;

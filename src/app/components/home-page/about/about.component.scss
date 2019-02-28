@@ -1,0 +1,48 @@
+.about-section {
+  color: white;
+  background-color: black;
+
+
+  .about-row {
+    height: 100%;
+    min-height: 90vh;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+
+  .about {
+    font-size: 18px;
+    padding: 0 2em 0 2em;
+    background-color: black;
+  }
+  .title {
+    font-size: 72px;
+    margin-bottom: 25px;
+  }
+
+  .about-image {
+    background: linear-gradient(to right, black, rgba(0, 0, 0, 0) 30%), linear-gradient(to bottom, black, rgba(0, 0, 0, 0) 50%), linear-gradient(to top, black, rgba(0, 0, 0, 0) 50%), url("../../../../assets/home/about.jpg");
+    background-size: cover;
+  }
+
+  .vault {
+    max-height: 50px;
+  }
+
+  .logo {
+    width: 350px;
+  }
+
+  @media (max-width: 576px) {
+    .about-text {
+      padding: 15px;
+    }
+  }
+
+}
+

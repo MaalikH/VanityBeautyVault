@@ -1,0 +1,52 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0;
+  background-color: white !important;
+}
+
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 48px; /* Height of navbar */
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.navbar-brand {
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+.dropdown-menu {
+  border: none;
+  width: 100%;
+  padding-top: 0;
+}
+
+.dropdown-toggle {
+  color: grey;
+}
+
+.dropdown-open {
+  margin-top: 125px;
+}
+.nav-item {
+  color: #979FAB;
+}
+
+.active {
+  background-color: #F9F9F9;
+  color: #FF7575 !important;
+  border-left: 3px solid #FF7575;
+}
+
+.dashboard-content {
+  min-height: 100vh;
+  background-color: #FDFDFD;
+}

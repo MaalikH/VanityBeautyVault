@@ -1,0 +1,28 @@
+.subscribe {
+  height: 60vh;
+  padding: 30px;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+    rgba(0, 0, 0, .7),
+    rgba(0, 0, 0, .7)
+  ), url("../../../../assets/home/subscribeBG.jpg");
+}
+
+.form-group {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.info-button {
+  margin-top: 25px !important;
+}
+
+.subscribe-success {
+  padding-top: 12px;
+  font-size: 24px;
+  color: green;
+  font-weight: 900;
+}

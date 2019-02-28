@@ -4,26 +4,31 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeSectionComponent } from './home-page/home-section/home-section.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { JumbotronComponent } from './home-page/jumbotron/jumbotron.component';
-import { AboutComponent } from './home-page/about/about.component';
+import { HomeSectionComponent } from './components/home-page/home-section/home-section.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { JumbotronComponent } from './components/home-page/jumbotron/jumbotron.component';
+import { AboutComponent } from './components/home-page/about/about.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { ServicesComponent } from './home-page/services/services.component';
-import { ServiceComponent } from './home-page/service/service.component';
-import { TrainingComponent } from './home-page/training/training.component';
-import { StatsComponent } from './home-page/stats/stats.component';
-import { PortfolioComponent } from './home-page/portfolio/portfolio.component';
-import { PortfolioImageComponent } from './home-page/portfolio-image/portfolio-image.component';
-import { ServicesPageComponent } from './services-page/services-page.component';
-import { SubscribeComponent } from './home-page/subscribe/subscribe.component';
+import { ServicesComponent } from './components/home-page/services/services.component';
+import { ServiceComponent } from './components/home-page/service/service.component';
+import { TrainingComponent } from './components/home-page/training/training.component';
+import { StatsComponent } from './components/home-page/stats/stats.component';
+import { PortfolioComponent } from './components/home-page/portfolio/portfolio.component';
+import { PortfolioImageComponent } from './components/home-page/portfolio-image/portfolio-image.component';
+import { ServicesPageComponent } from './components/services-page/services-page.component';
+import { SubscribeComponent } from './components/home-page/subscribe/subscribe.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { ContactPageComponent } from './contact-page/contact-page.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardNavbarComponent } from './components/dashboard/dashboard-navbar/dashboard-navbar.component';
+import { DashboardContentComponent } from './components/dashboard/dashboard-content/dashboard-content.component';
+import { DashboardHomePageComponent } from './components/dashboard/dashboard-home-page/dashboard-home-page.component';
+import { DashboardCardComponent } from './components/dashboard/dashboard-card/dashboard-card.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     PortfolioImageComponent,
     ServicesPageComponent,
     SubscribeComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    DashboardComponent,
+    DashboardNavbarComponent,
+    DashboardContentComponent,
+    DashboardHomePageComponent,
+    DashboardCardComponent
   ],
   imports: [
     BrowserModule,
