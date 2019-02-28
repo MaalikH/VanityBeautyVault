@@ -22,6 +22,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

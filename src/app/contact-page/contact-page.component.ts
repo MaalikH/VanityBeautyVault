@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactModel } from '../models/contact.model';
+import {FirebaseService} from '../services/firebase.service';
+import {AlertService} from '../services/alert.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -9,26 +11,34 @@ import { ContactModel } from '../models/contact.model';
 export class ContactPageComponent implements OnInit {
 
   contactMessage: ContactModel;
-  phone: string;
-  email: string;
+  contactInfo;
 
-  constructor() {
+  constructor(private fbService: FirebaseService, private alertService: AlertService) {
     this.contactMessage = new class implements ContactModel {
       email: string;
       message: string;
       name: string;
-      time: string;
+      time: number;
+      read: boolean;
     };
-
-    this.phone = 'xxx-xxx-xxxx';
-    this.email = 'sparklelashdc_@gmail.com';
   }
 
   ngOnInit() {
+    this.contactInfo = this.fbService.getItem('contact');
   }
 
   onSubmit() {
-    console.log('Message', this.contactMessage);
+    this.contactMessage.time = Date.now();
+    this.contactMessage.read = false;
+    this.fbService.pushListItem('inquiries', this.contactMessage);
+    this.alertService.newAlert('success', 'Your message has successfully been sent', true, true, 'Success!');
+    this.contactMessage = {
+      email: null,
+      message: null,
+      name: null,
+      time: null,
+      read: false
+    };
   }
 
 

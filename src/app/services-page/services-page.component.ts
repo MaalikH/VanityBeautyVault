@@ -3,6 +3,9 @@ import {ServicesModel} from '../models/services.model';
 import _ from 'lodash';
 import {ServicesPageService} from './services-page.service';
 import {ActivatedRoute} from '@angular/router';
+import {FirebaseService} from '../services/firebase.service';
+import {AngularFireDatabase} from '@angular/fire/database';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-services-page',
@@ -10,8 +13,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./services-page.component.scss', '../app.component.scss']
 })
 export class ServicesPageComponent implements OnInit {
+  servicesList;
 
-  constructor(private servicesPageService: ServicesPageService, private route: ActivatedRoute) {
+  constructor(private servicesPageService: ServicesPageService, private route: ActivatedRoute, private fbService: FirebaseService, private db: AngularFireDatabase) {
   }
 
   services: ServicesModel[] = [
@@ -191,13 +195,14 @@ export class ServicesPageComponent implements OnInit {
     },
   ];
 
-  filteredServices: ServicesModel[] = [];
+  filteredServices;
   selectedService = 'all';
 
   ngOnInit() {
+    this.servicesList = this.fbService.getList('services');
+    console.log('Service List', this.servicesList);
     this.route.paramMap.subscribe((params) => {
       this.selectedService = params.get('service');
-      console.log('SELECTED SERVICE', this.selectedService);
       this.filterServices(this.selectedService);
     });
   }
@@ -206,9 +211,9 @@ export class ServicesPageComponent implements OnInit {
   filterServices(type: string) {
     this.selectedService = type;
     if (type === 'all' || type === null) {
-      this.filteredServices = this.services;
+      this.filteredServices = this.servicesList;
     } else {
-      this.filteredServices = _.filter(this.services, {'serviceType': type});
+      this.filteredServices = this.db.list('services', ref => ref.orderByChild('serviceType').equalTo(type)).valueChanges();
     }
   }
 }

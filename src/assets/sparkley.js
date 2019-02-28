@@ -32,13 +32,14 @@ $(function() {
     color: ['#FF7575', 'gold'],
     speed: 0.05
   });
+   **/
 
   $(".sparkleBtn").sparkleh({
     count: 10,
     color: ['#FF7575', 'gold'],
     speed: 0.05
   });
-**/
+
 
   // an array can be passed, too for colours
   // for an image, the image needs to be fully loaded to set

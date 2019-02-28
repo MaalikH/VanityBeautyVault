@@ -3,8 +3,10 @@ import { Router, NavigationEnd } from '@angular/router';
 import {AngularFireDatabase, AngularFireList, AngularFireObject} from '@angular/fire/database';
 import {FirebaseDatabase} from '@angular/fire';
 import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
+import {debounceTime, map} from 'rxjs/operators';
 import {FirebaseService} from './services/firebase.service';
+import {AlertService} from './services/alert.service';
+import {AlertModel} from './models/alert.model';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,23 @@ import {FirebaseService} from './services/firebase.service';
 })
 export class AppComponent implements OnInit {
   title = 'VanityBeautyVault';
-  item: Observable<any>;
   links;
   instagramLink: string;
   facebookLink: string;
   acuityLink: string;
+  alert: AlertModel = {
+    type: 'success',
+    message: null,
+    dismissible: true,
+    show: true,
+    header: 'Default'
+  };
 
   constructor(
     private router: Router,
     private db: AngularFireDatabase,
-    private firebase: FirebaseService
+    private firebase: FirebaseService,
+    private alertService: AlertService
   ) {
   }
 
@@ -42,11 +51,20 @@ export class AppComponent implements OnInit {
           node.id = 'custom_js';
           node.charset = 'utf-8';
           document.getElementsByTagName('head')[0].appendChild(node);
-        }, 2000);
+        }, 1000);
 
       }
     });
 
-    this.firebase.deleteItem('item');
+    this.alertService.alert.subscribe((alert: AlertModel) => {
+      this.alert = alert;
+    });
+    this.alertService.alert.pipe(
+      debounceTime(5000)
+    ).subscribe(() => this.alert.show = false);
+  }
+
+  closeAlert() {
+    this.alert.message = null;
   }
 }

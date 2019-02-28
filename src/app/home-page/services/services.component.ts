@@ -12,8 +12,6 @@ import {NavigationEnd, Router} from '@angular/router';
   styleUrls: ['./services.component.scss', '../../app.component.scss']
 })
 export class ServicesComponent implements OnInit {
-
-  serviced = ['Training', 'Eyelash Extensions', 'Microblading', 'Waxing'];
   @Input() sectionInfo: Observable<any>;
   @Input() services: any;
 

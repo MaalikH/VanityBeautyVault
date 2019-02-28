@@ -25,6 +25,9 @@
     </ul>
   </div>
 </nav>
+<ngb-alert *ngIf="alert.show" class="alert" (close)="closeAlert()" [type]="alert.type" [dismissible]="alert.dismissible">
+  <strong>{{alert.header}}</strong> {{ alert.message }}
+</ngb-alert>
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>
 <footer>
