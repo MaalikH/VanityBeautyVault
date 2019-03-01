@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import {Stat} from '../../../models/stat.model';
 
 @Component({
   selector: 'app-stats',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class StatsComponent implements OnInit {
 
-  @Input() sectionInfo;
+  @Input() statsInfo: Stat[];
 
   constructor() { }
 

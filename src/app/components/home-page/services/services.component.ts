@@ -1,10 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ServicesPageService} from '../../services-page/services-page.service';
-import {Observable} from 'rxjs';
 import {FirebaseService} from '../../../services/firebase-service/firebase.service';
 import {AngularFireDatabase} from '@angular/fire/database';
-import { map } from 'rxjs/operators';
-import {NavigationEnd, Router} from '@angular/router';
+import {HomeServices} from '../../../models/homeServices.model';
+import {HomePageService} from '../../../models/homePageService.model';
 
 @Component({
   selector: 'app-services',
@@ -12,10 +11,10 @@ import {NavigationEnd, Router} from '@angular/router';
   styleUrls: ['./services.component.scss', '../../../app.component.scss']
 })
 export class ServicesComponent implements OnInit {
-  @Input() sectionInfo: Observable<any>;
-  @Input() services: any;
+  @Input() servicesSection: HomeServices;
+  @Input() services: HomePageService[];
 
-  constructor(private servicesPageService: ServicesPageService, private fbService: FirebaseService, private db: AngularFireDatabase, private router: Router) { }
+  constructor(private servicesPageService: ServicesPageService, private fbService: FirebaseService, private db: AngularFireDatabase) { }
 
   ngOnInit() {
   }

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {HomePageService} from '../../../models/homePageService.model';
 
 @Component({
   selector: 'app-service',
@@ -8,7 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ServiceComponent implements OnInit {
 
   constructor() { }
-  @Input() service;
+  @Input() service: HomePageService;
   @Input() index;
   imageURL: string;
 

@@ -1,10 +1,25 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-
+      <app-dashboard-card [cardTitle]="'About'">
+        <p *ngIf="!aboutParagraphEdit" (click)="toggleParagraphEdit()">{{ (aboutObservable | async)?.paragraph}}</p>
+        <textarea *ngIf="aboutParagraphEdit" type="text" class="form-control aboutParagraphTextArea" id="about-paragraph"
+                  [(ngModel)]="service.title" name="about-paragraph" [placeholder]="(aboutObservable | async)?.paragraph">
+        </textarea>
+      </app-dashboard-card>
     </div>
     <div class="col-md-6">
-
+      <app-dashboard-card></app-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-dashboard-card>
+        <p *ngIf="!servicesTitleEdit" (click)="toggleServicesTitle()"></p>
+        <textarea *ngIf="servicesTitleEdit" type="text" class="form-control servicesTitleTextArea" id="service-title"
+                  [(ngModel)]="servicesTitle" name="service-title" [placeholder]="k">
+        </textarea>
+      </app-dashboard-card>
     </div>
   </div>
 </div>

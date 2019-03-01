@@ -3,11 +3,11 @@
     <div class="col-sm-6 training-image hidden-md-down">
     </div>
     <div class="col-sm-6 training-text sparkley">
-      <h1 class="display-4 training-title text-center">{{ (sectionInfo | async)?.title}}</h1>
-      <p class="training-info">{{ (sectionInfo | async)?.info}}</p>
+      <h1 class="display-4 training-title text-center">{{ trainingInfo?.title}}</h1>
+      <p class="training-info">{{ trainingInfo?.info }}</p>
       <div class="row">
         <div class="col-12 text-center">
-          <button type="button" class="btn btn-light info-button sparkley1" [routerLink]="['/services']" (click)="trainingBtnClicked()">{{ (sectionInfo | async)?.button}}</button>
+          <button type="button" class="btn btn-light info-button sparkley1" [routerLink]="['/services']" (click)="trainingBtnClicked()">{{trainingInfo?.button}}</button>
         </div>
       </div>
     </div>

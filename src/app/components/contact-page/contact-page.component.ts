@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContactModel } from '../../models/contact.model';
 import {FirebaseService} from '../../services/firebase-service/firebase.service';
 import {AlertService} from '../../services/alert-service/alert.service';
+import {DataService} from '../../services/data-service/data.service';
+import {ContactPage} from '../../models/contactPage.model';
 
 @Component({
   selector: 'app-contact-page',
@@ -11,9 +13,9 @@ import {AlertService} from '../../services/alert-service/alert.service';
 export class ContactPageComponent implements OnInit {
 
   contactMessage: ContactModel;
-  contactInfo;
+  contactInfo: ContactPage;
 
-  constructor(private fbService: FirebaseService, private alertService: AlertService) {
+  constructor(private fbService: FirebaseService, private alertService: AlertService, private dataService: DataService) {
     this.contactMessage = new class implements ContactModel {
       email: string;
       message: string;
@@ -24,7 +26,9 @@ export class ContactPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactInfo = this.fbService.getItem('contact');
+   this.dataService.getContactPageInfo().subscribe((data: ContactPage) => {
+     this.contactInfo = data;
+   });
   }
 
   onSubmit() {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {FirebaseService} from '../../../services/firebase-service/firebase.service';
 import {AlertService} from '../../../services/alert-service/alert.service';
+import {Subscribe} from '../../../models/subscribe.model';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {AlertService} from '../../../services/alert-service/alert.service';
   styleUrls: ['./subscribe.component.scss',  '../../../app.component.scss']
 })
 export class SubscribeComponent implements OnInit {
-  @Input() sectionInfo;
+  @Input() subscribeInfo: Subscribe;
   email: string;
 
   constructor(private fbService: FirebaseService, private alertService: AlertService) { }

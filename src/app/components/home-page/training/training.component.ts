@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ServicesPageService} from '../../services-page/services-page.service';
+import {Training} from '../../../models/training.model';
 
 @Component({
   selector: 'app-training',
@@ -8,7 +9,7 @@ import {ServicesPageService} from '../../services-page/services-page.service';
 })
 export class TrainingComponent implements OnInit {
 
-  @Input() sectionInfo;
+  @Input() trainingInfo: Training;
 
   constructor(private servicePageService: ServicesPageService ) { }
 

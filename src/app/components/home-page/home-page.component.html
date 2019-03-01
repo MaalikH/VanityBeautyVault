@@ -1,8 +1,8 @@
 <app-jumbotron></app-jumbotron>
-<app-about [paragraph]="aboutParagraph"></app-about>
-<app-services [sectionInfo]="servicesInfo" [services]="services"></app-services>
-<app-training [sectionInfo]="trainingInfo"></app-training>
-<app-portfolio [sectionInfo]="galleryInfo"></app-portfolio>
-<app-stats [sectionInfo]="statsInfo"></app-stats>
-<app-subscribe [sectionInfo]="subscribeInfo"></app-subscribe>
+<app-about [about]="homePage?.about"></app-about>
+<app-services [servicesSection]="homePage?.services" [services]="services"></app-services>
+<app-training [trainingInfo]="homePage?.training"></app-training>
+<app-portfolio [galleryInfo]="homePage?.gallery"></app-portfolio>
+<app-stats [statsInfo]="stats"></app-stats>
+<app-subscribe [subscribeInfo]="homePage?.subscribe"></app-subscribe>
 

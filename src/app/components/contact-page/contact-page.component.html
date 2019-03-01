@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row ">
           <div class="col-lg-6">
-          <p class="contact-heading">{{ (contactInfo | async)?.contactHeading }}</p>
+          <p class="contact-heading">{{ contactInfo?.contactHeading }}</p>
           </div>
         </div>
       </div>
@@ -14,8 +14,8 @@
     <div class="row">
       <div class="col-lg-7">
         <div class="contact-form">
-          <h2>{{ (contactInfo | async)?.formTitle }}</h2>
-          <p>{{ (contactInfo | async)?.formSubtitle }}</p>
+          <h2>{{ contactInfo?.formTitle }}</h2>
+          <p>{{ contactInfo?.formSubtitle }}</p>
         </div>
         <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
           <div class="form-group">
@@ -30,7 +30,7 @@
             <label for="message">Message (Required)</label>
             <textarea type="text" class="form-control contact-message" id="message" placeholder="Your Message" [(ngModel)]="contactMessage.message" name="message" required></textarea>
           </div>
-          <button type="submit" class="btn btn-light info-button sparkley1" [disabled]="!contactForm.form.valid">{{ (contactInfo | async)?.button }}</button>
+          <button type="submit" class="btn btn-light info-button sparkley1" [disabled]="!contactForm.form.valid">{{ contactInfo?.button }}</button>
         </form>
       </div>
       <div class="col-lg-5">
@@ -39,8 +39,8 @@
         </div>
         <div class="contact-info">
           <h1>Info</h1>
-          <p class="contact-details"> {{ (contactInfo | async)?.info1Title }}: {{ (contactInfo | async)?.info1 }}</p>
-          <p class="contact-details"> {{ (contactInfo | async)?.info2Title }}: {{ (contactInfo | async)?.info2 }}</p>
+          <p class="contact-details"> {{ contactInfo?.info1Title }}: {{ contactInfo?.info1 }}</p>
+          <p class="contact-details"> {{ contactInfo?.info2Title }}: {{ contactInfo?.info2 }}</p>
         </div>
       </div>
     </div>
