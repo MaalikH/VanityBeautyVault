@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard-navbar',
   templateUrl: './dashboard-navbar.component.html',
-  styleUrls: ['./dashboard-navbar.component.scss']
+  styleUrls: ['./dashboard-navbar.component.scss', '../../../app.component.scss']
 })
 export class DashboardNavbarComponent implements OnInit {
 

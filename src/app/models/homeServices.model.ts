@@ -1,7 +1,7 @@
-import {Service} from './homePageService.model';
+import {HomePageService} from './homePageService.model';
 
 export interface HomeServices {
   button: string;
-  services: Service[];
+  services: HomePageService[];
   title: string;
 }

@@ -38,6 +38,7 @@
 }
 .nav-item {
   color: #979FAB;
+  font-weight: bolder;
 }
 
 .active {
@@ -51,3 +52,10 @@
   background-color: #FDFDFD;
   padding-top: 50px;
 }
+
+.navbar-brand {
+  position: relative !important;
+  left: auto !important;
+  margin-left: 0 !important;
+}
+

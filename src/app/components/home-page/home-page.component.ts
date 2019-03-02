@@ -14,7 +14,7 @@ import {Stat} from '../../models/stat.model';
 export class HomePageComponent implements OnInit {
   data: any;
   homePage: HomePage;
-  services: HomePageService[];
+  services: HomePageService[] = [];
   stats: Stat[];
 
 

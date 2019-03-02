@@ -2,23 +2,41 @@
   <div class="row">
     <div class="col-md-6">
       <app-dashboard-card [cardTitle]="'About'">
-        <p *ngIf="!aboutParagraphEdit" (click)="toggleParagraphEdit()">{{ (aboutObservable | async)?.paragraph}}</p>
+        <p *ngIf="!aboutParagraphEdit" (click)="toggleParagraphEdit()">{{ homePage?.about.paragraph }}</p>
         <textarea *ngIf="aboutParagraphEdit" type="text" class="form-control aboutParagraphTextArea" id="about-paragraph"
-                  [(ngModel)]="service.title" name="about-paragraph" [placeholder]="(aboutObservable | async)?.paragraph">
+                  [(ngModel)]="homePage?.about.paragraph" name="about-paragraph" [placeholder]="homePage.about.paragraph">
         </textarea>
       </app-dashboard-card>
     </div>
     <div class="col-md-6">
-      <app-dashboard-card></app-dashboard-card>
+      <app-dashboard-card [cardTitle]="'About Image'"></app-dashboard-card>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
       <app-dashboard-card>
-        <p *ngIf="!servicesTitleEdit" (click)="toggleServicesTitle()"></p>
-        <textarea *ngIf="servicesTitleEdit" type="text" class="form-control servicesTitleTextArea" id="service-title"
-                  [(ngModel)]="servicesTitle" name="service-title" [placeholder]="k">
-        </textarea>
+        <div class="container-fluid" *ngIf="services">
+          <div class="row">
+            <div class="col-12">
+              <p  class="text-center" *ngIf="!servicesTitleEdit" (click)="toggleServicesTitle()">{{ homePage?.services.title}}</p>
+              <input *ngIf="servicesTitleEdit" type="text" class="form-control servicesTitleTextArea" id="service-title"
+                        [(ngModel)]="homePage?.services.title" name="service-title" [placeholder]="homePage?.services.title">
+            </div>
+            <div class="col-3" *ngFor="let service of services; let i = index">
+              <p  class="text-center" *ngIf="!servicesEdit[i]" (click)="toggleServiceEdit(i)">{{ service.title}}</p>
+              <input *ngIf="servicesEdit[i]" type="text" class="form-control servicesTitleTextArea" id="service1Title1"
+                      name="service1" [(ngModel)]="service.title" [placeholder]="service.title">
+              <p  class="text-center" *ngIf="!servicesEdit[i]" (click)="toggleServiceEdit(i)">{{ service.info}}</p>
+              <textarea *ngIf="servicesEdit[i]" type="text" class="form-control serviceInfoTextArea" id="service1Info"
+                        [(ngModel)]="service.info" name="service1" [placeholder]="services[i]?.info"></textarea>
+            </div>
+            <div class="col-12 text-center">
+              <p  class="text-center" *ngIf="!servicesButtonEdit" (click)="toggleServicesButton()">{{ homePage?.services.button }}</p>
+              <input *ngIf="servicesButtonEdit" type="text" class="form-control servicesTitleTextArea" id="servicesButton"
+                     name="servicesButton" [(ngModel)]="homePage?.services.button" [placeholder]="homePage?.services.button">
+            </div>
+          </div>
+        </div>
       </app-dashboard-card>
     </div>
   </div>
