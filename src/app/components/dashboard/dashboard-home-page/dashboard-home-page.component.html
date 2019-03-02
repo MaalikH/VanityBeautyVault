@@ -22,12 +22,12 @@
               <input *ngIf="servicesTitleEdit" type="text" class="form-control servicesTitleTextArea" id="service-title"
                         [(ngModel)]="homePage?.services.title" name="service-title" [placeholder]="homePage?.services.title">
             </div>
-            <div class="col-3" *ngFor="let service of services; let i = index">
+            <div class="col-md-3" *ngFor="let service of services; let i = index">
               <p  class="text-center" *ngIf="!servicesEdit[i]" (click)="toggleServiceEdit(i)">{{ service.title}}</p>
               <input *ngIf="servicesEdit[i]" type="text" class="form-control servicesTitleTextArea" id="service1Title1"
                       name="service1" [(ngModel)]="service.title" [placeholder]="service.title">
               <p  class="text-center" *ngIf="!servicesEdit[i]" (click)="toggleServiceEdit(i)">{{ service.info}}</p>
-              <textarea *ngIf="servicesEdit[i]" type="text" class="form-control serviceInfoTextArea" id="service1Info"
+              <textarea *ngIf="servicesEdit[i]" type="text" class="form-control infoTextArea" id="service1Info"
                         [(ngModel)]="service.info" name="service1" [placeholder]="services[i]?.info"></textarea>
             </div>
             <div class="col-12 text-center">
@@ -37,6 +37,63 @@
             </div>
           </div>
         </div>
+      </app-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-dashboard-card [cardTitle]="'Training Image'">
+      </app-dashboard-card>
+    </div>
+    <div class="col-md-6">
+      <app-dashboard-card>
+        <p class="text-center" *ngIf="!trainingTitleEdit" (click)="toggleTrainingTitleEdit()">{{ homePage?.training.title }}</p>
+        <input *ngIf="trainingTitleEdit" type="text" class="form-control" id="training-title"
+                  [(ngModel)]="homePage?.training.title" name="training-title" [placeholder]="homePage?.training.title">
+
+        <p class="text-center" *ngIf="!trainingInfoEdit" (click)="toggleTrainingInfoEdit()">{{ homePage?.training.info }}</p>
+        <textarea *ngIf="trainingInfoEdit" type="text" class="form-control infoTextArea" id="training-info"
+                  [(ngModel)]="homePage?.training.info" name="training-info" [placeholder]="homePage?.training.info"></textarea>
+
+        <p class="text-center" *ngIf="!trainingButtonEdit" (click)="toggleTrainingButtonEdit()">{{ homePage?.training.button }}</p>
+        <input *ngIf="trainingButtonEdit" type="text" class="form-control" id="training-button"
+                  [(ngModel)]="homePage?.training.button" name="training-button" [placeholder]="homePage?.training.button">
+      </app-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-dashboard-card>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let stat of stats; let i = index">
+              <p  class="text-center" *ngIf="!statsEdit[i]" (click)="toggleStatsEdit(i)">{{ stat.title}}</p>
+              <input *ngIf="statsEdit[i]" type="text" class="form-control servicesTitleTextArea" id="statTitle"
+                     name="service1" [(ngModel)]="stat.title" [placeholder]="stat.title">
+
+              <p  class="text-center" *ngIf="!statsEdit[i]" (click)="toggleStatsEdit(i)">{{ stat.amount }}</p>
+              <input *ngIf="statsEdit[i]" type="text" class="form-control" id="statsInfo"
+                        [(ngModel)]="stat.amount" name="service1" [placeholder]="stat.amount">
+            </div>
+          </div>
+        </div>
+      </app-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-dashboard-card>
+        <p class="text-center" *ngIf="!emailTitleEdit" (click)="toggleEmailTitle()">{{ homePage?.subscribe.title }}</p>
+        <input *ngIf="emailTitleEdit" type="text" class="form-control" id="email-title"
+               [(ngModel)]="homePage?.subscribe.title" name="email-title" [placeholder]="homePage?.subscribe.title">
+
+        <p class="text-center" *ngIf="!emailsubTitleEdit" (click)="toggleEmailSubtitle()">{{ homePage?.subscribe.info }}</p>
+        <input *ngIf="emailsubTitleEdit" type="text" class="form-control" id="email-subtitle"
+               [(ngModel)]="homePage?.subscribe.info" name="email-subtitle" [placeholder]="homePage?.subscribe.info">
+
+        <p class="text-center" *ngIf="!emailButton" (click)="toggleEmailButton()">{{ homePage?.subscribe.button }}</p>
+        <input *ngIf="emailButton" type="text" class="form-control" id="email-button"
+               [(ngModel)]="homePage?.subscribe.button" name="email-button" [placeholder]="homePage?.subscribe.button">
       </app-dashboard-card>
     </div>
   </div>

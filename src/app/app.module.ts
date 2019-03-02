@@ -29,6 +29,7 @@ import { DashboardNavbarComponent } from './components/dashboard/dashboard-navba
 import { DashboardContentComponent } from './components/dashboard/dashboard-content/dashboard-content.component';
 import { DashboardHomePageComponent } from './components/dashboard/dashboard-home-page/dashboard-home-page.component';
 import { DashboardCardComponent } from './components/dashboard/dashboard-card/dashboard-card.component';
+import { DashboardContactComponent } from './components/dashboard/dashboard-contact/dashboard-contact.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { DashboardCardComponent } from './components/dashboard/dashboard-card/da
     DashboardNavbarComponent,
     DashboardContentComponent,
     DashboardHomePageComponent,
-    DashboardCardComponent
+    DashboardCardComponent,
+    DashboardContactComponent
   ],
   imports: [
     BrowserModule,

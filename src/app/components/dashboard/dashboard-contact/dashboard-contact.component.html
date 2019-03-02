@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <app-dashboard-card>
+        <p *ngIf="!contactHeaderEdit" (click)="toggleContactHeader()">{{ contact.contactHeading }}</p>
+        <input *ngIf="contactHeaderEdit" type="text" class="form-control" id="contact-header"
+               [(ngModel)]="contact.contactHeading" name="contact-header" [placeholder]="contact.contactHeading">
+      </app-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-dashboard-card>
+              <p *ngIf="!contactTitleEdit" (click)="toggleContactTitleEdit()">{{ contact.formTitle }}</p>
+              <input *ngIf="contactTitleEdit" type="text" class="form-control" id="contact-title"
+                     [(ngModel)]="contact.formTitle" name="contact-header" [placeholder]="contact.formTitle">
+              <hr>
+              <p *ngIf="!contactSubtitleEdit" (click)="toggleContactSubtitleEdit()">{{ contact.formSubtitle }}</p>
+              <textarea *ngIf="contactSubtitleEdit" type="text" class="form-control" id="contact-subtitle"
+                        [(ngModel)]="contact.formSubtitle" name="contact-subtitle" [placeholder]="contact.formSubtitle"></textarea>
+              <hr>
+              <div class="container-fluid">
+                <div class="col-12">
+                  <input placeholder="Name" disabled>
+                </div>
+                <div class="col-12">
+                 <input placeholder="Email" disabled>
+                </div>
+                <div class="col-12">
+                  <input placeholder="Your Message" disabled>
+                </div>
+                </div>
+              <hr>
+              <p *ngIf="!contactButtonEdit" (click)="toggleContactButtonEdit()">{{ contact.button }}</p>
+              <input *ngIf="contactButtonEdit" type="text" class="form-control" id="contact-button"
+                     [(ngModel)]="contact.button" name="contact-header" [placeholder]="contact.button">
+      </app-dashboard-card>
+    </div>
+    <div class="col-md-6">
+          <app-dashboard-card>
+            <div class="map-block d-flex justify-content-center align-items-center">
+              <p>MAP</p>
+            </div>
+          </app-dashboard-card>
+    </div>
+  </div>
+</div>
+
+

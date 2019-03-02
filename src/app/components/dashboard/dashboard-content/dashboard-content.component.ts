@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardContentComponent implements OnInit {
 
+  contactHeaderEdit = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleContactHeader() {
+    this.contactHeaderEdit = !this.contactHeaderEdit;
   }
 
 }

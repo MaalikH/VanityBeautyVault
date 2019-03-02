@@ -4,7 +4,17 @@
   <form (ngSubmit)="onSubcribeClick()" #subscribeForm="ngForm" novalidate>
     <div class="form-group row d-flex justify-content-center">
       <div class="col-sm-6">
-        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" [(ngModel)]="email" name="email" required>
+        <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" [(ngModel)]="subscriber.firstName" name="firstname" required>
+      </div>
+    </div>
+    <div class="form-group row d-flex justify-content-center">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" [(ngModel)]="subscriber.lastName" name="lastname" required>
+      </div>
+    </div>
+    <div class="form-group row d-flex justify-content-center">
+      <div class="col-sm-6">
+        <input type="email" class="form-control" id="inputEmail" placeholder="E-mail" [(ngModel)]="subscriber.email" name="email" required>
         <button type="submit" value="submit" class="btn btn-light info-button sparkley1" [disabled]="!subscribeForm.form.valid">{{ subscribeInfo?.button}}</button>
       </div>
     </div>

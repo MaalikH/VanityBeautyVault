@@ -30,6 +30,10 @@ export class FirebaseService {
     itemsRef.push(item);
   }
 
+  updateObject(path: string, item: any) {
+    this.db.object(path).set(item);
+  }
+
   createItem(item: any, path: string): void {
     const itemRef = this.db.object(path);
     itemRef.set(item);

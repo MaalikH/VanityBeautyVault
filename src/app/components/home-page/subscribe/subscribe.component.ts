@@ -12,8 +12,21 @@ import {Subscribe} from '../../../models/subscribe.model';
 export class SubscribeComponent implements OnInit {
   @Input() subscribeInfo: Subscribe;
   email: string;
+  subscriber: {
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: number
+  };
 
-  constructor(private fbService: FirebaseService, private alertService: AlertService) { }
+  constructor(private fbService: FirebaseService, private alertService: AlertService) {
+    this.subscriber = {
+        firstName: null,
+        lastName: null,
+        email: null,
+        phoneNumber: null
+    };
+  }
 
   ngOnInit() {
   }

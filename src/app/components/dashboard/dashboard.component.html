@@ -4,25 +4,25 @@
       <span class="navbar-brand col-md-12 col-md-12 mr-0" href="#">Vanity Lash</span>
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <li class="nav-item" (click)="onLinkClick('home')" [ngClass]="{'active': activeLink === 'home'}">
+          <li class="nav-item" (click)="onLinkClick('Home')" [ngClass]="{'active': activeLink === 'Home'}">
             <a class="nav-link">Home</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('gallery')" [ngClass]="{'active': activeLink === 'gallery'}">
+          <li class="nav-item" (click)="onLinkClick('Gallery')" [ngClass]="{'active': activeLink === 'Gallery'}">
             <a class="nav-link">Gallery</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('services')" [ngClass]="{'active': activeLink === 'services'}">
+          <li class="nav-item" (click)="onLinkClick('Services')" [ngClass]="{'active': activeLink === 'Services'}">
             <a class="nav-link">Services</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('contact')" [ngClass]="{'active': activeLink === 'contact'}">
+          <li class="nav-item" (click)="onLinkClick('Contact')" [ngClass]="{'active': activeLink === 'Contact'}">
             <a class="nav-link">Contact</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('inquiries')" [ngClass]="{'active': activeLink === 'inquiries'}">
+          <li class="nav-item" (click)="onLinkClick('Inquiries')" [ngClass]="{'active': activeLink === 'Inquiries'}">
               <a class="nav-link">Contact Inquiries</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('email')" [ngClass]="{'active': activeLink === 'email'}">
+          <li class="nav-item" (click)="onLinkClick('Email')" [ngClass]="{'active': activeLink === 'Email'}">
               <a class="nav-link">Email List</a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('analytics')" [ngClass]="{'active': activeLink === 'analytics'}">
+          <li class="nav-item" (click)="onLinkClick('Analytics')" [ngClass]="{'active': activeLink === 'Analytics'}">
               <a class="nav-link">Analytics</a>
           </li>
         </ul>
@@ -30,14 +30,16 @@
     </nav>
 
     <div class="col-md-10 offset-md-2 dashboard-content">
-      <div class="container">
-        <div class="row header">
-          <div class="col-12">
-            <h1>Home</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-between">
+            <h1>{{activeLink}}</h1>
+            <button *ngIf="pageEdited" type="button" class="btn btn-danger" (click)="onSaveClick()">SAVE</button>
           </div>
         </div>
       </div>
-      <app-dashboard-home-page></app-dashboard-home-page>
+      <app-dashboard-home-page *ngIf="activeLink === 'Home'"></app-dashboard-home-page>
+      <app-dashboard-contact *ngIf="activeLink === 'Contact'"></app-dashboard-contact>
     </div>
   </div>
 </div>
