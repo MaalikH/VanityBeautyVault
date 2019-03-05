@@ -97,4 +97,20 @@
       </app-dashboard-card>
     </div>
   </div>
+  <div class="row">
+    <div class="col-12">
+      <app-dashboard-card>
+        <div>
+          <p class="text-center" *ngIf="!instagramEdit" (click)="toggleLink()">Instagram Link</p>
+          <input *ngIf="instagramEdit" type="text" class="form-control" id="instagram-link"
+                 [(ngModel)]="links.instagramLink" name="instagram-link" [placeholder]="links.instagramLink">
+        </div>
+        <div>
+          <p class="text-center" *ngIf="!acuityEdit" (click)="toggleLink()">Acuity Link</p>
+          <input *ngIf="instagramEdit" type="text" class="form-control" id="acuity-link"
+                 [(ngModel)]="links.acuityLink" name="acuity-link" [placeholder]="links.acuityLink">
+        </div>
+      </app-dashboard-card>
+    </div>
+  </div>
 </div>

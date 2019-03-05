@@ -24,7 +24,7 @@
           </div>
           <div class="form-group">
             <label for="email">Email (Required)</label>
-            <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="contactMessage.email" name="email" required>
+            <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="contactMessage.email" name="email" email required>
           </div>
           <div class="form-group">
             <label for="message">Message (Required)</label>
@@ -36,11 +36,6 @@
       <div class="col-lg-5">
         <div class="info">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106111.61811279971!2d-84.44955576504019!3d33.78680634622704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504420bd78c53%3A0x878c894c30b9bbe2!2sMidtown%2C+Atlanta%2C+GA!5e0!3m2!1sen!2sus!4v1551233950177" class="map" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-        <div class="contact-info">
-          <h1>Info</h1>
-          <p class="contact-details"> {{ contactInfo?.info1Title }}: {{ contactInfo?.info1 }}</p>
-          <p class="contact-details"> {{ contactInfo?.info2Title }}: {{ contactInfo?.info2 }}</p>
         </div>
       </div>
     </div>

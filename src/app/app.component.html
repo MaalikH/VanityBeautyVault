@@ -1,5 +1,7 @@
 <nav *ngIf="showNavbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand navbar-brand-home" href="#">Navbar</a>
+  <a class="navbar-brand navbar-brand-home" href="#">
+    <img class="vanity-brand" src="../assets/common/VanityLashLogo.png">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,7 +11,7 @@
         <a class="nav-link" [routerLink]="['/home']">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/services']">SERVICES</a>
+        <a class="nav-link" [routerLink]="['/services/all']">SERVICES</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" href="#">GALLERY</a>
@@ -20,7 +22,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" [routerLink]="['active']">
-        <a class="nav-link" href="https://www.styleseat.com/m/p/1420823?utm_source=google&utm_campaign=client_atl_brand_extensions&utm_medium=cpc">MAKE AN APPOINTMENT</a>
+        <a class="nav-link" [href]="links.acuityLink">MAKE AN APPOINTMENT</a>
       </li>
     </ul>
   </div>
@@ -34,20 +36,20 @@
   <div class="container-fluid">
   <div class="row text-center footer">
     <div class="col-md-4">
-      <img class="footer-logo" src="../assets/home/VBSLOGO.jpg">
+      <img class="footer-logo" src="../assets/common/VanityLashLogo.png">
     </div>
     <div class="col-md-4 justify-content-center align-self-center">
       <div class="row text-center">
-        <div class="col-md-3">
+        <div class="col-md-3 footer-link">
         <a [routerLink]="['/home']">HOME</a>
         </div>
-        <div class="col-md-3">
-          <a [routerLink]="['/services']">SERVICES</a>
+        <div class="col-md-3 footer-link">
+          <a [routerLink]="['/services/all']">SERVICES</a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 footer-link">
           <a [routerLink]="['/services']">GALLERY</a>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 footer-link">
           <a [routerLink]="['/contact']">CONTACT</a>
         </div>
       </div>
@@ -55,9 +57,6 @@
     <div class="col-md-4 justify-content-center align-self-center">
       <a [href]="(links | async)?.instagramLink">
         <img class="icon" src="../assets/common/instagram-256.png">
-      </a>
-      <a [href]="(links | async)?.facebookLink">
-        <img class="icon" src="../assets/common/facebook-256.png">
       </a>
       <a [href]="(links | async)?.acuityLink">
         <img class="icon" src="../assets/common/appointment-reminders-256.png">

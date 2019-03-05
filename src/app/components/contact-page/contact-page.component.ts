@@ -21,7 +21,7 @@ export class ContactPageComponent implements OnInit {
       message: string;
       name: string;
       time: number;
-      read: boolean;
+      unread: boolean;
     };
   }
 
@@ -33,7 +33,7 @@ export class ContactPageComponent implements OnInit {
 
   onSubmit() {
     this.contactMessage.time = Date.now();
-    this.contactMessage.read = false;
+    this.contactMessage.unread = true;
     this.fbService.pushListItem('inquiries', this.contactMessage);
     this.alertService.newAlert('success', 'Your message has successfully been sent', true, true, 'Success!');
     this.contactMessage = {
@@ -41,7 +41,7 @@ export class ContactPageComponent implements OnInit {
       message: null,
       name: null,
       time: null,
-      read: false
+      unread: true
     };
   }
 

@@ -29,7 +29,6 @@ export class HomePageComponent implements OnInit {
     this.dataService.getHomePageServices().subscribe((data: HomePageService[]) => {
       this.services = data;
     });
-    console.log('THIS DATA', this.data);
   }
 
   getHomePageInfo() {

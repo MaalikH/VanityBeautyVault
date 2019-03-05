@@ -8,6 +8,7 @@ import {FirebaseService} from './services/firebase-service/firebase.service';
 import {AlertService} from './services/alert-service/alert.service';
 import {AlertModel} from './models/alert.model';
 import {NavbarService} from './services/navbar-service/navbar.service';
+import {LinkModel} from './models/common.model';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ import {NavbarService} from './services/navbar-service/navbar.service';
 export class AppComponent implements OnInit {
   showNavbar = true;
   title = 'VanityBeautyVault';
-  links;
+  links: LinkModel;
   alert: AlertModel = {
     type: 'success',
     message: null,
@@ -36,11 +37,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.links = this.firebase.getItem('common');
+    this.firebase.getItem('common').subscribe((data: LinkModel) => {
+      this.links = data;
+    });
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         setTimeout( function () {
-          console.log('FUNCTION RAN');
           if (document.getElementById('custom_js') != null) {
             document.getElementById('custom_js').remove();
           }

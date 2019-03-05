@@ -7,6 +7,7 @@ import {Service} from '../../../models/service.model';
 import {HomePageService} from '../../../models/homePageService.model';
 import {Stat} from '../../../models/stat.model';
 import {DashboardService} from '../services/dashboard.service';
+import {LinkModel} from '../../../models/common.model';
 
 @Component({
   selector: 'app-dashboard-home-page',
@@ -32,6 +33,9 @@ export class DashboardHomePageComponent implements OnInit {
   emailTitleEdit = false;
   emailsubTitleEdit = false;
   emailButton = false;
+  links: LinkModel;
+  instagramEdit = false;
+  acuityEdit = false;
   pageEdited = false;
 
 
@@ -39,6 +43,9 @@ export class DashboardHomePageComponent implements OnInit {
 
   ngOnInit() {
     this.getHomePageInfo();
+    this.fbService.getItem('/common').subscribe((data: LinkModel) => {
+      this.links = data;
+    });
     this.dashboardService.editPressedObservable.subscribe(() => {
       this.fbService.updateObject('home/about', this.homePage.about);
       this.fbService.updateObject('home/services/button', this.homePage.services.button);
@@ -47,6 +54,7 @@ export class DashboardHomePageComponent implements OnInit {
       this.fbService.updateObject('home/stats', this.stats);
       this.fbService.updateObject('home/subscribe', this.homePage.subscribe);
       this.fbService.updateObject('home/training', this.homePage.training);
+      this.fbService.updateObject('common', this.links);
       this.dashboardService.pageEdited(false);
       this.aboutParagraphEdit = false;
       this.servicesTitleEdit = false;
@@ -59,6 +67,7 @@ export class DashboardHomePageComponent implements OnInit {
       this.emailTitleEdit = false;
       this.emailsubTitleEdit = false;
       this.emailButton = false;
+      this.instagramEdit = false;
     });
   }
 
@@ -116,6 +125,11 @@ export class DashboardHomePageComponent implements OnInit {
 
   toggleEmailButton() {
     this.emailButton = !this.emailButton;
+    this.dashboardService.pageEdited(true);
+  }
+
+  toggleLink() {
+    this.instagramEdit = !this.instagramEdit;
     this.dashboardService.pageEdited(true);
   }
 

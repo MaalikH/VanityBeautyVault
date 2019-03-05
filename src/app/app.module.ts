@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeSectionComponent } from './components/home-page/home-section/home-section.component';
@@ -17,19 +21,19 @@ import { PortfolioComponent } from './components/home-page/portfolio/portfolio.c
 import { PortfolioImageComponent } from './components/home-page/portfolio-image/portfolio-image.component';
 import { ServicesPageComponent } from './components/services-page/services-page.component';
 import { SubscribeComponent } from './components/home-page/subscribe/subscribe.component';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardNavbarComponent } from './components/dashboard/dashboard-navbar/dashboard-navbar.component';
 import { DashboardContentComponent } from './components/dashboard/dashboard-content/dashboard-content.component';
 import { DashboardHomePageComponent } from './components/dashboard/dashboard-home-page/dashboard-home-page.component';
 import { DashboardCardComponent } from './components/dashboard/dashboard-card/dashboard-card.component';
 import { DashboardContactComponent } from './components/dashboard/dashboard-contact/dashboard-contact.component';
+import { DashboardEmailListComponent } from './components/dashboard/dashboard-email-list/dashboard-email-list.component';
+import { DashboardInquiriesComponent } from './components/dashboard/dashboard-inquiries/dashboard-inquiries.component';
+import { DashboardServicesComponent } from './components/dashboard/dashboard-services/dashboard-services.component';
+import { DashboardLoginComponent } from './components/dashboard/dashboard-login/dashboard-login.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,12 @@ import { DashboardContactComponent } from './components/dashboard/dashboard-cont
     DashboardContentComponent,
     DashboardHomePageComponent,
     DashboardCardComponent,
-    DashboardContactComponent
+    DashboardContactComponent,
+    DashboardEmailListComponent,
+    DashboardInquiriesComponent,
+    DashboardServicesComponent,
+    DashboardLoginComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,

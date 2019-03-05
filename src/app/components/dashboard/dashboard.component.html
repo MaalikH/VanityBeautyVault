@@ -1,29 +1,32 @@
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <span class="navbar-brand col-md-12 col-md-12 mr-0" href="#">Vanity Lash</span>
+      <span class="navbar-brand col-md-12 col-md-12 mr-0" href="#">
+        <img class="vanity" src="../../../assets/common/VanityLashLogo.png">
+
+        </span>
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item" (click)="onLinkClick('Home')" [ngClass]="{'active': activeLink === 'Home'}">
-            <a class="nav-link">Home</a>
+            <a class="nav-link"><fa name="home"></fa> Home</a>
           </li>
           <li class="nav-item" (click)="onLinkClick('Gallery')" [ngClass]="{'active': activeLink === 'Gallery'}">
-            <a class="nav-link">Gallery</a>
+            <a class="nav-link"><fa name="camera"></fa> Gallery</a>
           </li>
           <li class="nav-item" (click)="onLinkClick('Services')" [ngClass]="{'active': activeLink === 'Services'}">
-            <a class="nav-link">Services</a>
+            <a class="nav-link"><fa name="cog"></fa> Services</a>
           </li>
           <li class="nav-item" (click)="onLinkClick('Contact')" [ngClass]="{'active': activeLink === 'Contact'}">
-            <a class="nav-link">Contact</a>
+            <a class="nav-link"><fa name="wpforms"></fa> Contact</a>
           </li>
           <li class="nav-item" (click)="onLinkClick('Inquiries')" [ngClass]="{'active': activeLink === 'Inquiries'}">
-              <a class="nav-link">Contact Inquiries</a>
+            <a class="nav-link"><fa name="user"></fa> Contact Inquiries <span *ngIf="unreadInquiries">({{unreadInquiries}})</span></a>
           </li>
-          <li class="nav-item" (click)="onLinkClick('Email')" [ngClass]="{'active': activeLink === 'Email'}">
-              <a class="nav-link">Email List</a>
+          <li class="nav-item" (click)="onLinkClick('Email List')" [ngClass]="{'active': activeLink === 'Email List'}">
+              <a class="nav-link"><fa name="envelope"></fa> Email List</a>
           </li>
           <li class="nav-item" (click)="onLinkClick('Analytics')" [ngClass]="{'active': activeLink === 'Analytics'}">
-              <a class="nav-link">Analytics</a>
+              <a class="nav-link"><fa name="chart-bar"></fa> Analytics</a>
           </li>
         </ul>
       </div>
@@ -33,13 +36,16 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 d-flex justify-content-between">
-            <h1>{{activeLink}}</h1>
+            <h1>{{activeLink}} <span *ngIf="activeLink === 'Email List'">({{this.subscriberCount}})</span></h1>
             <button *ngIf="pageEdited" type="button" class="btn btn-danger" (click)="onSaveClick()">SAVE</button>
           </div>
         </div>
       </div>
       <app-dashboard-home-page *ngIf="activeLink === 'Home'"></app-dashboard-home-page>
       <app-dashboard-contact *ngIf="activeLink === 'Contact'"></app-dashboard-contact>
+      <app-dashboard-email-list *ngIf="activeLink === 'Email List'"></app-dashboard-email-list>
+      <app-dashboard-inquiries *ngIf="activeLink === 'Inquiries'"></app-dashboard-inquiries>
+      <app-dashboard-services *ngIf="activeLink === 'Services'"></app-dashboard-services>
     </div>
   </div>
 </div>

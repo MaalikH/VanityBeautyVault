@@ -33,7 +33,7 @@
     <div class="col-lg-6" *ngFor="let service of filteredServices">
       <a [href]="service?.serviceLink" class="sparkleBtn">
       <div class="service d-flex justify-content-between sparkleBtn">
-      <p>{{service?.serviceName | json}}</p>
+      <p>{{service?.serviceName}}</p>
       <p>${{service?.servicePrice | json}}</p>
       </div>
       </a>

@@ -10,15 +10,19 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -45%);
+    transform: translate(-50%, -50%);
     z-index: 2;
+  }
+
+  .vault {
+    max-height: 300px;
   }
 
 
   .icon {
     font-size: 50px;
     position: absolute;
-    left: 50%;
+    left: 49%;
     top: 90%;
     transform: translate(-50%, -50%);
   }
@@ -39,8 +43,8 @@
 
   // Small devices (landscape phones, 576px and up)
   @media (max-width: 576px) {
-    .center {
-      height: 200px;
+    .vault {
+      height: 100px;
     }
   }
 
@@ -51,13 +55,17 @@
   }
 
   @media (min-width: 768px) and (max-width: 991.98px) {
-    .center {
-      height: 400px;
+    .vault {
+      max-width: 700px;
     }
   }
 
   // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {  }
+  @media (min-width: 992px) {
+    .vault {
+      max-width: 900px;
+    }
+  }
 
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) { }

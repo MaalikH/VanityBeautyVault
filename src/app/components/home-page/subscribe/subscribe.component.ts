@@ -32,7 +32,7 @@ export class SubscribeComponent implements OnInit {
   }
 
   onSubcribeClick() {
-    this.fbService.pushListItem('subscriptions', {email: this.email});
+    this.fbService.pushListItem('subscriptions', this.subscriber);
     this.alertService.newAlert('success', 'You have successfully subscribed to our mailing list', true, true, 'Success!');
   }
 

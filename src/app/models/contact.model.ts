@@ -3,5 +3,5 @@ export interface ContactModel {
   email: string;
   message: string;
   time: number;
-  read: boolean;
+  unread: boolean;
 }

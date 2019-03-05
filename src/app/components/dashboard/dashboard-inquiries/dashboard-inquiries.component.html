@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <app-dashboard-card *ngFor="let inquiry of inquries; let i = index">
+        <div class="row">
+          <div class="col-12 button d-flex justify-content-between">
+            <div>
+              <h1>{{inquiry.name}}</h1>
+            </div>
+            <div>
+              <button *ngIf="inquiry.unread" type="button" class="btn btn-success" (click)="markMessageAsRead(i)">Mark As Read</button>
+              <button type="button" class="btn btn-danger" (click)="deleteMessage(i)">Delete</button>
+            </div>
+          </div>
+        </div>
+        <table class="table">
+          <tbody>
+          <tr>
+            <th>Date</th>
+            <td> {{ inquiry.time | date:'MM/dd/yyyy'}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{ inquiry.email }}</td>
+          </tr>
+          <tr>
+            <th>Message</th>
+            <td>
+             {{ inquiry.message }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </app-dashboard-card>
+    </div>
+  </div>
+</div>

@@ -27,8 +27,6 @@ export class ServicesPageComponent implements OnInit {
       this.servicesList = result[0];
       this.selectedService = result[1].params.service;
       this.filterServices(this.selectedService);
-      console.log('Service List', this.servicesList);
-      console.log('RESULT', result[1].params.service);
     });
   }
 
@@ -37,7 +35,6 @@ export class ServicesPageComponent implements OnInit {
     this.selectedService = type;
     if (type === 'all' || type === null) {
       this.filteredServices = this.servicesList;
-      console.log('FIlTER SERVICES', this.filteredServices);
     } else {
       this.filteredServices = _.filter(this.servicesList, {'serviceType': type});
     }
