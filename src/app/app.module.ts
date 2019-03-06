@@ -34,6 +34,8 @@ import { DashboardInquiriesComponent } from './components/dashboard/dashboard-in
 import { DashboardServicesComponent } from './components/dashboard/dashboard-services/dashboard-services.component';
 import { DashboardLoginComponent } from './components/dashboard/dashboard-login/dashboard-login.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 
 @NgModule({
   declarations: [
