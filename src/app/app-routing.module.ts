@@ -6,6 +6,7 @@ import {ContactPageComponent} from './components/contact-page/contact-page.compo
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {DashboardLoginComponent} from './components/dashboard/dashboard-login/dashboard-login.component';
 import { AuthGuard } from './components/dashboard/services/auth-guard.service';
+import {GalleryComponent} from './components/gallery/gallery.component';
 
 const routes: Routes = [
 
@@ -14,12 +15,22 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
     path: 'home',
     component: HomePageComponent
   },
   {
+    path: 'gallery',
+    component: GalleryComponent
+  },
+  {
     path: 'services',
-    component: ServicesPageComponent,
+    redirectTo: 'services/all',
+    pathMatch: 'full'
   },
   {
     path: 'services/:service',

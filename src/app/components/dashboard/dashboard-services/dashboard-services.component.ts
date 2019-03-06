@@ -14,6 +14,7 @@ export class DashboardServicesComponent implements OnInit {
   services: Service[];
   filteredServices: Service[];
   serviceEdit = false;
+  servicePriceEdit = false;
 
   constructor(private dataService: DataService, private dashboardService: DashboardService) { }
 
@@ -34,6 +35,11 @@ export class DashboardServicesComponent implements OnInit {
 
   toggleServiceEdit() {
     this.serviceEdit = !this.serviceEdit;
+    this.dashboardService.pageEdited(true);
+  }
+
+  toggleServicePriceEdit() {
+    this.servicePriceEdit = !this.servicePriceEdit;
     this.dashboardService.pageEdited(true);
   }
 

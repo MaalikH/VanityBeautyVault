@@ -24,3 +24,9 @@
   padding-top: 50px;
 }
 
+@media (max-width: 576px) {
+  .training-info {
+    padding: 0 2em;
+  }
+}
+

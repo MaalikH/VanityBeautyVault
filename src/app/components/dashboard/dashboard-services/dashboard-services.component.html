@@ -30,7 +30,9 @@
       <app-dashboard-card>
         <div class="d-flex justify-content-between">
           <h3>{{service.serviceName}}</h3>
-          <h3>${{service.servicePrice}}</h3>
+          <h3 *ngIf="!servicePriceEdit" (click)="toggleServicePriceEdit()">${{service.servicePrice}}</h3>
+          <input *ngIf="servicePriceEdit" type="number" class="form-control servicesTitleTextArea" id="servicePrice"
+                 name="serviceprice" [(ngModel)]="service.servicePrice" [placeholder]="service.servicePrice">
         </div>
         <div>
           <h6>{{service.serviceType | uppercase}}</h6>

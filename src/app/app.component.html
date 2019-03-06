@@ -14,7 +14,7 @@
         <a class="nav-link" [routerLink]="['/services/all']">SERVICES</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" href="#">GALLERY</a>
+        <a class="nav-link" [routerLink]="['/gallery']">GALLERY</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/contact']" href="#">CONTACT</a>
@@ -22,7 +22,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" [routerLink]="['active']">
-        <a class="nav-link" [href]="links.acuityLink">MAKE AN APPOINTMENT</a>
+        <a class="nav-link" [href]="links?.acuityLink">MAKE AN APPOINTMENT</a>
       </li>
     </ul>
   </div>
@@ -55,10 +55,10 @@
       </div>
       </div>
     <div class="col-md-4 justify-content-center align-self-center">
-      <a [href]="(links | async)?.instagramLink">
+      <a [href]="links?.instagramLink">
         <img class="icon" src="../assets/common/instagram-256.png">
       </a>
-      <a [href]="(links | async)?.acuityLink">
+      <a [href]="links?.acuityLink">
         <img class="icon" src="../assets/common/appointment-reminders-256.png">
       </a>
     </div>
