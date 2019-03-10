@@ -1,9 +1,9 @@
 <div class="container-fluid portfolio">
   <a [routerLink]="['/gallery']">
-  <div class="row">
+  <div class="row" *ngIf="galleryInfo?.title">
     <div class="col-12 text-center">
-      <h1 class="display-4">{{ galleryInfo?.title }}</h1>
-      <p>{{ galleryInfo?.info }}</p>
+      <h1 class="display-4" *ngIf="galleryInfo?.title">{{ galleryInfo?.title }}</h1>
+      <p *ngIf="galleryInfo?.info">{{ galleryInfo?.info }}</p>
     </div>
   </div>
     <div class="row wrap">

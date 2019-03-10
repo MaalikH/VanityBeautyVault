@@ -14,6 +14,12 @@ $(function() {
     overlap: 10
   });
 
+  $(".wrap").sparkleh({
+    color: ['#FF7575', 'gold'],
+    count: 1000x,
+    overlap: 10
+  });
+
   // here we create fuscia sparkles
   //$("h1").sparkleh({
   //  count: 80,
