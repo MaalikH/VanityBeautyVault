@@ -24,6 +24,12 @@ $(function() {
     overlap: 10
   });
 
+  $(".sparkley-jumbotron").sparkleh({
+    color: ['#FF7575', '#FCEBEB', '#FCF5EF'],
+    count: 1000,
+    overlap: 10
+  });
+
   /**
   // here we create fuscia sparkles
   $("h1").sparkleh({
