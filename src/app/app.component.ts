@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
           node.id = 'custom_js';
           node.charset = 'utf-8';
           document.getElementsByTagName('head')[0].appendChild(node);
-        }, 1000);
+        }, 2000);
 
       }
     });

@@ -1,3 +1,5 @@
+@import "variables";
+
 @font-face {
   font-family: "BrookeSmith";
   src: url("../assets/fonts/BrookeSmith.ttf");
@@ -33,6 +35,7 @@ p {
 
 .navbar {
   z-index: 10;
+  border-bottom: 1px solid $color6 ;
   -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 4s; /* Firefox < 16 */
   -ms-animation: fadein 4s; /* Internet Explorer */

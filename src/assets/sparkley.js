@@ -18,6 +18,11 @@ $(function() {
     count: 40
   });
 
+  $(".sparkle-section").sparkleh({
+    color: ['#FF7575', '#F1F1F1', '#F1DCD7', '#FBEBEB'],
+    count: 1000
+  });
+
   /**
   // here we create fuscia sparkles
   $("h1").sparkleh({
