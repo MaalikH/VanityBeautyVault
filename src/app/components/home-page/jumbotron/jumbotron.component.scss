@@ -8,6 +8,18 @@
   background-image: url("../../../../assets/background/imageedit_4_7226114340.jpg");
   background-size: cover;
 
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrap {
+    height: 300px;
+    width: 65%;
+  }
+
   .center {
     position: absolute;
     left: 50%;
@@ -20,12 +32,11 @@
     max-height: 500px;
     max-width: 250px;
     padding: 5rem 1rem;
-    border-style: solid;
-    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 3s; /* Firefox < 16 */
-    -ms-animation: fadein 3s; /* Internet Explorer */
-    -o-animation: fadein 3s; /* Opera < 12.1 */
-    animation: fadein 3s;
+    -webkit-animation: fadein 9s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 5s; /* Firefox < 16 */
+    -ms-animation: fadein 5s; /* Internet Explorer */
+    -o-animation: fadein 5s; /* Opera < 12.1 */
+    animation: fadein 5s;
   }
 
   .border-gradient {
@@ -39,7 +50,7 @@
   .icon {
     font-size: 50px;
     position: absolute;
-    left: 49%;
+    left: 50%;
     top: 90%;
     transform: translate(-50%, -50%);
     animation: fadein 3s;
@@ -58,6 +69,53 @@
   .title {
     font-size: 148px;
   }
+
+  .gradient-box {
+
+    display: flex;
+    align-items: center;
+    //width: 50vw;
+    width: 90%;
+    margin: auto;
+    max-width: 22em;
+
+    position: relative;
+    padding: 30% 2em;
+    box-sizing: border-box;
+
+    $border: 5px;
+    color: #FFF;
+    background: #000;
+    background-clip: padding-box; /* !importanté */
+    border: solid $border transparent; /* !importanté */
+    border-radius: 1em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -$border; /* !importanté */
+      border-radius: inherit; /* !importanté */
+      background: linear-gradient(to right, red, orange);
+    }
+  }
+
+
+  .module-border-wrap {
+    max-width: 250px;
+    padding: 1rem;
+    position: relative;
+    background: linear-gradient(to right, red, purple);
+    padding: 3px;
+  }
+
+  .module {
+    background: black;
+    color: white;
+    padding: 2rem;
+  }
+
 
   @keyframes fadein {
     from { opacity: 0; }
@@ -93,6 +151,14 @@
     .vault {
       height: auto;
     }
+
+    .jumbotron-fluid, .jumbotron {
+      height: 50vh !important;
+    }
+    
+    fa {
+      display: none;
+    }
   }
 
   @media (min-width: 576px) and (max-width: 767.98px) {
@@ -115,6 +181,17 @@
   }
 
   // Extra large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) { }
+  @media (min-width: 1200px) {
+    .vault {
+      max-width: 1000px;
+    }
+  }
 
+}
+
+@media (max-width: 576px) {
+  .jumbotron-fluid, .jumbotron {
+    position: relative;
+    height: 70vh !important;
+  }
 }
