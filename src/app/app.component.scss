@@ -103,7 +103,7 @@ p {
 }
 
 .vanity-brand {
-  max-height: 50px;
+  max-height: 40px;
 }
 
 @keyframes fadein {
@@ -158,5 +158,6 @@ p {
   .navbar-brand-home {
     position: absolute;
     left: 50%;
+    margin-left: -70px !important;
   }
 }

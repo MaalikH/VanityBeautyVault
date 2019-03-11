@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Gallery} from '../../../models/gallery.model';
+import {Portfolio, PortfolioItem} from '../../../models/portfolio.model';
 
 @Component({
   selector: 'app-portfolio',
@@ -8,6 +9,7 @@ import {Gallery} from '../../../models/gallery.model';
 })
 export class PortfolioComponent implements OnInit {
   @Input() galleryInfo: Gallery;
+  @Input() portfolioInfo: Portfolio;
 
   constructor() { }
 

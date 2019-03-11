@@ -5,6 +5,7 @@ import {Subscribe} from './subscribe.model';
 import {Training} from './training.model';
 import {Services} from './services.model';
 import {HomeServices} from './homeServices.model';
+import {Portfolio, PortfolioItem} from './portfolio.model';
 
 export interface HomePage {
   about: About;
@@ -13,4 +14,5 @@ export interface HomePage {
   stats: Stats;
   subscribe: Subscribe;
   training: Training;
+  portfolio: any;
 }

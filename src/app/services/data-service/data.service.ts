@@ -10,6 +10,7 @@ import {Service} from '../../models/service.model';
 import {Subscribers} from '../../models/email-list.model';
 import {Classes} from '../../models/classes.model';
 import {ClassModel} from '../../models/class.model';
+import {Portfolio} from '../../models/portfolio.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,10 @@ export class DataService {
 
   getContactPageInfo(): Observable<ContactPage> {
     return this.firebaseService.getItem('contact');
+  }
+
+  getPortfolioInfo(): Observable<Portfolio> {
+    return this.firebaseService.getItem('portfolio');
   }
 
   getSubscribers(): Observable<Subscribers[]> {
