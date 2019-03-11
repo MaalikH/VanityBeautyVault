@@ -10,6 +10,11 @@
   src: url("../assets/fonts/Brusio.ttf");
 }
 
+@font-face {
+  font-family: "Tiva";
+  src: url("../assets/fonts/Tiva.otf");
+}
+
 *, body, h1 {
   font-family: 'Lato', sans-serif;
 }
@@ -104,7 +109,7 @@ p {
 }
 
 .vanity-brand {
-  max-width: 150px;
+  max-height: 50px;
 }
 
 @keyframes fadein {
@@ -159,6 +164,5 @@ p {
   .navbar-brand-home {
     position: absolute;
     left: 50%;
-    margin-left: -70px !important;
   }
 }

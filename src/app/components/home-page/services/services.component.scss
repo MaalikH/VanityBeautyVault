@@ -1,7 +1,13 @@
+@import '../../../variables';
+
 .services {
   padding: 72px;
   background-color: black;
   color: white;
+  background-image: url("../../../../assets/background/RoseBGDARKER.png");
+  background-attachment: fixed;
+  background-size: cover;
+  border-bottom: 1px solid $color6 ;
 
   .display-4 {
     padding-bottom: 30px;

@@ -1,8 +1,14 @@
 .container-fluid {
-  background-color: black;
   padding-top: 85px;
   color: white;
   min-height: 90vh;
+  background: url("../../../assets/background/RoseBGDARKER.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.red:before {
+  background-color: rgba(255,0,0,0.5);
 }
 
 .nav-link {

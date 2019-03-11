@@ -9,18 +9,18 @@ $(function() {
   // count determines number of sparkles
   // overlap allows sparkles to migrate... watch out for other dom elements though.
   $(".sparkley").sparkleh({
-    color: ['#FF7575', 'gold'],
+    color: ['#FF7575', '#F1F1F1', '#F1DCD7', '#FBEBEB'],
     count: 20
   });
 
   $(".sparkley1").sparkleh({
-    color: ['#FF7575', 'gold'],
+    color: ['#FF7575', '#F1F1F1', '#F1DCD7', '#FBEBEB'],
     count: 40
   });
 
   $(".sparkle-section").sparkleh({
     color: ['#FF7575', '#F1F1F1', '#F1DCD7', '#FBEBEB'],
-    count: 1000
+    count: 500
   });
 
   /**
@@ -41,7 +41,7 @@ $(function() {
 
   $(".sparkleBtn").sparkleh({
     count: 10,
-    color: ['#FF7575', 'gold'],
+    color: ['#FF7575', '#F1F1F1', '#F1DCD7', '#FBEBEB'],
     speed: 0.05
   });
 
