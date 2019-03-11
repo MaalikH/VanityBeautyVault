@@ -13,7 +13,6 @@ export class StatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('DATA ', this.statsInfo);
   }
 
 }

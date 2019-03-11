@@ -1,7 +1,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <app-dashboard-card [cardTitle]="'About'">
+      <app-dashboard-card>
+        <p *ngIf="!aboutParagraphEdit" (click)="toggleParagraphEdit()">{{ homePage?.about.title }}</p>
+        <input *ngIf="aboutParagraphEdit" type="text" class="form-control" id="about-title"
+                  [(ngModel)]="homePage?.about.title" name="about-paragraph" [placeholder]="homePage.about.paragraph">
         <p *ngIf="!aboutParagraphEdit" (click)="toggleParagraphEdit()">{{ homePage?.about.paragraph }}</p>
         <textarea *ngIf="aboutParagraphEdit" type="text" class="form-control aboutParagraphTextArea" id="about-paragraph"
                   [(ngModel)]="homePage?.about.paragraph" name="about-paragraph" [placeholder]="homePage.about.paragraph">
@@ -60,6 +63,30 @@
                   [(ngModel)]="homePage?.training.button" name="training-button" [placeholder]="homePage?.training.button">
       </app-dashboard-card>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-dashboard-card>
+        <p *ngIf="!portfolioEdit" (click)="togglePortfolioEdit()">{{ portfolio.text1 }}</p>
+        <input *ngIf="portfolioEdit" type="text" class="form-control" id="portfolio-title1"
+               [(ngModel)]="portfolio.text1" name="portfolio-1" [placeholder]="portfolio.text1">
+      </app-dashboard-card>
+    </div>
+    <div class="col-4">
+      <app-dashboard-card>
+        <p *ngIf="!portfolioEdit" (click)="togglePortfolioEdit()">{{ portfolio.text2 }}</p>
+        <input *ngIf="portfolioEdit" type="text" class="form-control" id="portfolio-title2"
+               [(ngModel)]="portfolio.text2" name="portfolio-1" [placeholder]="portfolio.text2">
+      </app-dashboard-card>
+    </div>
+    <div class="col-4">
+      <app-dashboard-card>
+        <p *ngIf="!portfolioEdit" (click)="togglePortfolioEdit()">{{ portfolio.text2 }}</p>
+        <input *ngIf="portfolioEdit" type="text" class="form-control" id="portfolio-title3"
+               [(ngModel)]="portfolio.text3" name="portfolio-1" [placeholder]="portfolio.text3">
+      </app-dashboard-card>
+    </div>
+
   </div>
   <div class="row">
     <div class="col-12">
