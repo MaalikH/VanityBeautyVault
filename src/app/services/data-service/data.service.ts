@@ -8,6 +8,8 @@ import {ContactModel} from '../../models/contact.model';
 import {ContactPage} from '../../models/contactPage.model';
 import {Service} from '../../models/service.model';
 import {Subscribers} from '../../models/email-list.model';
+import {Classes} from '../../models/classes.model';
+import {ClassModel} from '../../models/class.model';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +55,10 @@ export class DataService {
 
   updateServices(path: string, item: Service[]) {
     this.firebaseService.updateObject('services', item);
+  }
+
+  getClasses(): Observable<ClassModel[]> {
+    return this.firebaseService.getList('classes');
   }
 
   setDataRetrieved(dataSet: boolean) {

@@ -99,6 +99,13 @@ a {
 }
 **/
 
+@media (max-width: 576px) {
+.d-xs-none {
+  display: none !important;
+}
+
+}
+
 @media (min-width: 768px) and (max-width: 1199.98px) {
   .portraitImage {
     height: 100%;

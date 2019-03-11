@@ -3,8 +3,15 @@
     <div class="col-sm-6 training-image d-none d-lg-block">
     </div>
     <div class="col-lg-6 training-text sparkley">
-      <h1 class="display-4 training-title text-center">{{ trainingInfo?.title}}</h1>
+      <h1 class="display-4 training-title">{{ trainingInfo?.title}}</h1>
       <p class="training-info">{{ trainingInfo?.info }}</p>
+      <div class="d-flex flex-column">
+        <div *ngFor="let class of classes">
+          <a class="training-info" [href]="class?.classLink">
+            {{class?.className}}
+          </a>
+        </div>
+      </div>
       <div class="row">
         <div class="col-12 text-center">
           <button type="button" class="btn btn-light info-button sparkley1" [routerLink]="['/services/training']" (click)="trainingBtnClicked()">{{trainingInfo?.button}}</button>
