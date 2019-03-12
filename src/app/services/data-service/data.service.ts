@@ -8,6 +8,9 @@ import {ContactModel} from '../../models/contact.model';
 import {ContactPage} from '../../models/contactPage.model';
 import {Service} from '../../models/service.model';
 import {Subscribers} from '../../models/email-list.model';
+import {Classes} from '../../models/classes.model';
+import {ClassModel} from '../../models/class.model';
+import {Portfolio} from '../../models/portfolio.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +42,10 @@ export class DataService {
     return this.firebaseService.getItem('contact');
   }
 
+  getPortfolioInfo(): Observable<Portfolio> {
+    return this.firebaseService.getItem('portfolio');
+  }
+
   getSubscribers(): Observable<Subscribers[]> {
     return this.firebaseService. getList('subscriptions');
   }
@@ -53,6 +60,10 @@ export class DataService {
 
   updateServices(path: string, item: Service[]) {
     this.firebaseService.updateObject('services', item);
+  }
+
+  getClasses(): Observable<ClassModel[]> {
+    return this.firebaseService.getList('classes');
   }
 
   setDataRetrieved(dataSet: boolean) {

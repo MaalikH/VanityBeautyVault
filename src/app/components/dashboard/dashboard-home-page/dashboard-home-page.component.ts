@@ -8,6 +8,7 @@ import {HomePageService} from '../../../models/homePageService.model';
 import {Stat} from '../../../models/stat.model';
 import {DashboardService} from '../services/dashboard.service';
 import {LinkModel} from '../../../models/common.model';
+import {Portfolio} from '../../../models/portfolio.model';
 
 @Component({
   selector: 'app-dashboard-home-page',
@@ -35,6 +36,8 @@ export class DashboardHomePageComponent implements OnInit {
   emailButton = false;
   links: LinkModel;
   instagramEdit = false;
+  portfolio: Portfolio;
+  portfolioEdit = false;
   acuityEdit = false;
   pageEdited = false;
 
@@ -55,6 +58,7 @@ export class DashboardHomePageComponent implements OnInit {
       this.fbService.updateObject('home/subscribe', this.homePage.subscribe);
       this.fbService.updateObject('home/training', this.homePage.training);
       this.fbService.updateObject('common', this.links);
+      this.fbService.updateObject('portfolio', this.portfolio);
       this.dashboardService.pageEdited(false);
       this.aboutParagraphEdit = false;
       this.servicesTitleEdit = false;
@@ -68,6 +72,7 @@ export class DashboardHomePageComponent implements OnInit {
       this.emailsubTitleEdit = false;
       this.emailButton = false;
       this.instagramEdit = false;
+      this.portfolioEdit = false;
     });
   }
 
@@ -133,8 +138,13 @@ export class DashboardHomePageComponent implements OnInit {
     this.dashboardService.pageEdited(true);
   }
 
+  togglePortfolioEdit() {
+    this.portfolioEdit = !this.portfolioEdit;
+    this.dashboardService.pageEdited(true);
+  }
+
   getHomePageInfo() {
-    const data = combineLatest(this.dataService.getHomePageData(), this.dataService.getHomePageServices(), this.dataService.getHomePageStatInfo());
+    const data = combineLatest(this.dataService.getHomePageData(), this.dataService.getHomePageServices(), this.dataService.getHomePageStatInfo(), this.dataService.getPortfolioInfo());
     data.subscribe((results) => {
       this.homePage = results[0];
       this.services = results[1];
@@ -142,6 +152,7 @@ export class DashboardHomePageComponent implements OnInit {
       this.originalHonmePage = results[0];
       this.services = results[1];
       this.stats = results[2];
+      this.portfolio = results[3];
       this.dataService.setDataRetrieved(true);
     });
   }

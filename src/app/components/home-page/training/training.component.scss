@@ -1,6 +1,8 @@
+@import "../../../variables";
 .training {
   background-color: black;
   color: white;
+  border-bottom: 1px solid $color6;
 }
 
 .training-row {
@@ -8,7 +10,7 @@
 }
 
 .training-text {
-  padding-bottom: 72px;
+  padding: 25px 50px 72px 100px;
 }
 
 .training-image {
@@ -16,17 +18,24 @@
   background-size: cover;
 }
 
-.training-info {
-  padding: 15px 100px 0 100px;
-}
-
 .training-title {
   padding-top: 50px;
 }
 
+a {
+  text-decoration: underline !important;
+  color: white;
+  font-weight: 900;
+}
 @media (max-width: 576px) {
-  .training-info {
-    padding: 0 2em;
+
+  .d-none {
+    display: none;
+  }
+
+  .training-text {
+    padding: 25px 50px;
+    text-align: center;
   }
 }
 

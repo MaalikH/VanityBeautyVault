@@ -1,3 +1,5 @@
+@import "variables";
+
 @font-face {
   font-family: "BrookeSmith";
   src: url("../assets/fonts/BrookeSmith.ttf");
@@ -6,6 +8,11 @@
 @font-face {
   font-family: "Vanity";
   src: url("../assets/fonts/Brusio.ttf");
+}
+
+@font-face {
+  font-family: "Tiva";
+  src: url("../assets/fonts/Tiva.otf");
 }
 
 *, body, h1 {
@@ -20,12 +27,6 @@ body {
   font-family: BrookeSmith;
 }
 
-.rose-gold-text {
-  color: white;
-  background: url("../assets/home/rosegold.jpg");
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 p {
   font-size: 18px;
@@ -33,6 +34,7 @@ p {
 
 .navbar {
   z-index: 10;
+  border-bottom: 1px solid $color6 ;
   -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 4s; /* Firefox < 16 */
   -ms-animation: fadein 4s; /* Internet Explorer */
@@ -102,7 +104,7 @@ p {
 }
 
 .vanity-brand {
-  max-width: 150px;
+  max-height: 40px;
 }
 
 @keyframes fadein {

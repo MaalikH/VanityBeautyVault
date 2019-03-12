@@ -5,6 +5,7 @@ import {BehaviorSubject, combineLatest, forkJoin, Observable} from 'rxjs';
 import {DataService} from '../../services/data-service/data.service';
 import {HomePageService} from '../../models/homePageService.model';
 import {Stat} from '../../models/stat.model';
+import {Portfolio} from '../../models/portfolio.model';
 
 @Component({
   selector: 'app-home-page',
@@ -16,6 +17,7 @@ export class HomePageComponent implements OnInit {
   homePage: HomePage;
   services: HomePageService[] = [];
   stats: Stat[];
+  portfolio: Portfolio;
 
 
   constructor(private fbService: FirebaseService, private dataService: DataService) { }
@@ -32,11 +34,12 @@ export class HomePageComponent implements OnInit {
   }
 
   getHomePageInfo() {
-    const data = combineLatest(this.dataService.getHomePageData(), this.dataService.getHomePageServices(), this.dataService.getHomePageStatInfo());
+    const data = combineLatest(this.dataService.getHomePageData(), this.dataService.getHomePageServices(), this.dataService.getHomePageStatInfo(), this.dataService.getPortfolioInfo());
     data.subscribe((results) => {
       this.homePage = results[0];
       this.services = results[1];
       this.stats = results[2];
+      this.portfolio = results[3];
       this.dataService.setDataRetrieved(true);
     });
   }
