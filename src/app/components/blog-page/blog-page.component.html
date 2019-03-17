@@ -1,0 +1,13 @@
+<div class="container-fluid blog">
+  <div class="row blog-header">
+    <div class="col-12">
+    </div>
+  </div>
+  <div class="container blog-posts" *ngIf="posts?.items">
+  <div class="row">
+    <div class="col-md-6" *ngFor="let post of posts?.items">
+      <app-blog-page-post [post]="post"></app-blog-page-post>
+    </div>
+  </div>
+  </div>
+</div>

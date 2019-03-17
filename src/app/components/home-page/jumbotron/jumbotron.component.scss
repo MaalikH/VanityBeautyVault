@@ -9,6 +9,7 @@
   background-image: url("../../../../assets/background/RoseBGDARKER.png");
   background-size: cover;
   background-attachment: fixed;
+  border-bottom: 1px solid white;
 
   .center {
     position: absolute;
@@ -94,11 +95,19 @@
     .vault {
       height: auto;
     }
+
+    .jumbotron-fluid {
+      background-attachment: scroll;
+    }
   }
 
   @media (min-width: 576px) and (max-width: 767.98px) {
     .center {
       height: 300px;
+    }
+
+    .jumbotron-fluid {
+      background-attachment: scroll;
     }
   }
 

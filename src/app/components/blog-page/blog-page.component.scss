@@ -1,0 +1,45 @@
+.blog-header {
+  background: linear-gradient(
+      rgba(266, 117, 117, .7),
+      rgba(255, 117, 117, .7)
+  ), url("../../../assets/common/IMG_5457.jpg");
+  background-size: cover;
+  height: 35vh;
+  background-size: cover;
+}
+
+.blog {
+  background: black url("../../../assets/background/RoseBGDARKER.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+.card-img-top {
+  height: 300px;
+}
+
+.card {
+  margin: 20px 0px
+}
+
+.blog {
+  padding-top: 50px;
+}
+
+.blog-posts {
+  padding: 50px;
+}
+
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.card-title {
+  font-size: 18px;
+}
+
+.card-text {
+  font-size: 16px;
+}

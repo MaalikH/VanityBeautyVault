@@ -1,0 +1,39 @@
+.blog {
+  min-height: 90vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: black;
+  background: url("../../../assets/background/RoseBGDARKER.png");
+  background-size: cover;
+  color: white;
+}
+
+.blog-header {
+  background: linear-gradient(
+      rgba(266, 117, 117, .7),
+      rgba(255, 117, 117, .7)
+  ), url("../../../assets/common/IMG_5457.jpg");
+  background-size: cover;
+  min-height: 35vh;
+}
+
+.blog-heading {
+  font-size: 75px;
+  color: white;
+}
+
+.blog-text {
+  font-size: 20px;
+  padding: 100px 75px;
+
+}
+
+.blog-content {
+  .separator:nth-child(1) {
+    a {
+      img {
+        display: none;
+      }
+    }
+  }
+}

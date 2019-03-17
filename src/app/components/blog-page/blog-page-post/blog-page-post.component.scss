@@ -1,0 +1,41 @@
+.card-img-top {
+  height: 300px;
+  border-radius: 0;
+}
+
+.card-img-container {
+  height: 300px;
+  overflow: hidden;
+}
+
+.card {
+  margin: 20px 0px;
+  border: none;
+  border-radius: 0;
+
+  &:hover {
+    cursor: pointer;
+    .card-img-top {
+      transition: transform .5s;
+      transform: scale(1.5);
+      -ms-transform: scale(1.5);
+      -webkit-transform: scale(1.5);
+    }
+  }
+}
+
+
+.card-subtitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+.card-title {
+  font-size: 18px;
+  color: black;
+}
+
+.card-text {
+  font-size: 16px;
+}

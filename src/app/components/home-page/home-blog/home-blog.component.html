@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="display-4 title">Vanity Blog</h1>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-md-4 d-flex justify-content-center align-items-center" *ngFor="let post of latestPosts?.items">
+      <app-home-blog-post [post]="post"></app-home-blog-post>
+    </div>
+  </div>
+</div>

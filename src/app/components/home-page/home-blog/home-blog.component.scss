@@ -1,0 +1,33 @@
+.container-fluid {
+  padding: 72px;
+  background-color: black;
+  color: white;
+  background-image: url('../../../../assets/background/RoseBGDARKER.png');
+  background-attachment: fixed;
+  border-bottom: 1px solid white;
+  background-size: cover;
+}
+
+.card {
+  color: black;
+  border: none;
+  border-radius: 0;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+
+.card-text {
+  font-size: 14px;
+}
+
+.card-img-top {
+  height: 200px;
+  border-radius: 0;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

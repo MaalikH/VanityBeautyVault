@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -33,8 +34,13 @@ import { DashboardEmailListComponent } from './components/dashboard/dashboard-em
 import { DashboardInquiriesComponent } from './components/dashboard/dashboard-inquiries/dashboard-inquiries.component';
 import { DashboardServicesComponent } from './components/dashboard/dashboard-services/dashboard-services.component';
 import { DashboardLoginComponent } from './components/dashboard/dashboard-login/dashboard-login.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
+import { GalleryComponent } from './components/gallery-page/gallery.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { HomeBlogComponent } from './components/home-page/home-blog/home-blog.component';
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { HomeBlogPostComponent } from './components/home-page/home-blog/home-blog-post/home-blog-post.component';
+import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blog-page-post.component';
 
 
 @NgModule({
@@ -64,6 +70,11 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
     DashboardServicesComponent,
     DashboardLoginComponent,
     GalleryComponent,
+    HomeBlogComponent,
+    BlogPageComponent,
+    BlogPostComponent,
+    HomeBlogPostComponent,
+    BlogPagePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +85,8 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
     AngularFireDatabaseModule,
     FormsModule,
     NgbModule,
-    NgbAlertModule
+    NgbAlertModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

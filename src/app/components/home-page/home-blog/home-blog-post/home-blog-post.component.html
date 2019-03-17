@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;" (click)="onPostClick()">
+  <div class="card-img-container">
+   <img class="card-img-top" [src]="post.images[0].url" alt="Card image cap">
+  </div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">{{post.published | date}}</h6>
+    <h5 class="card-title">{{post.title}}</h5>
+  </div>
+</div>

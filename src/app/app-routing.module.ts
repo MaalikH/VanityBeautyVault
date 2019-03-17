@@ -6,7 +6,9 @@ import {ContactPageComponent} from './components/contact-page/contact-page.compo
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {DashboardLoginComponent} from './components/dashboard/dashboard-login/dashboard-login.component';
 import { AuthGuard } from './components/dashboard/services/auth-guard.service';
-import {GalleryComponent} from './components/gallery/gallery.component';
+import {GalleryComponent} from './components/gallery-page/gallery.component';
+import {BlogPageComponent} from './components/blog-page/blog-page.component';
+import {BlogPostComponent} from './components/blog-post/blog-post.component';
 
 const routes: Routes = [
 
@@ -43,6 +45,14 @@ const routes: Routes = [
     path: 'admin/dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'blog',
+    component: BlogPageComponent,
+  },
+  {
+    path: 'blog/:id',
+    component: BlogPostComponent,
   }
 ];
 
