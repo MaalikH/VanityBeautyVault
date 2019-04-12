@@ -9,6 +9,8 @@ import { AuthGuard } from './components/dashboard/services/auth-guard.service';
 import {GalleryComponent} from './components/gallery-page/gallery.component';
 import {BlogPageComponent} from './components/blog-page/blog-page.component';
 import {BlogPostComponent} from './components/blog-post/blog-post.component';
+import {ShopComponent} from './components/shop/shop.component';
+import {ShopItemComponent} from './components/shop/shop-item/shop-item.component';
 
 const routes: Routes = [
 
@@ -53,6 +55,14 @@ const routes: Routes = [
   {
     path: 'blog/:id',
     component: BlogPostComponent,
+  },
+  {
+    path: 'shop',
+    component: ShopComponent
+  },
+  {
+    path: 'shop/:productID',
+    component: ShopItemComponent
   }
 ];
 

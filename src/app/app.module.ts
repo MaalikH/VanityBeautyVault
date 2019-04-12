@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeSectionComponent } from './components/home-page/home-section/home-section.component';
@@ -41,6 +42,8 @@ import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { BlogPostComponent } from './components/blog-post/blog-post.component';
 import { HomeBlogPostComponent } from './components/home-page/home-blog/home-blog-post/home-blog-post.component';
 import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blog-page-post.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
 
 
 @NgModule({
@@ -75,6 +78,8 @@ import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blo
     BlogPostComponent,
     HomeBlogPostComponent,
     BlogPagePostComponent,
+    ShopComponent,
+    ShopItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,12 +88,16 @@ import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blo
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireFunctionsModule,
     FormsModule,
     NgbModule,
+    NgbDropdownModule,
     NgbAlertModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: FunctionsRegionToken, useValue: 'us-central1' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
