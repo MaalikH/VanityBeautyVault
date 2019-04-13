@@ -39,7 +39,19 @@ export interface Attributes {
   export interface AttributeModel {
     name: string;
     options: string[];
+    selected: string;
   }
+
+export interface SelectedAttributeModel {
+  attributeName: string;
+  attributeValue: string;
+}
+
+export interface ShoppingCartItemModel {
+  sku: string;
+  quantity: number;
+}
+
 
 
 

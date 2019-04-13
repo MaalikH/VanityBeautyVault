@@ -1,0 +1,11 @@
+<div class="container-fluid shop">
+  <div class="row" *ngIf="productsLoaded" [hidden]="!imageLoaded">
+    <div class="col-md-4" *ngFor="let product of products" (click)="onClickProduct(product.id)">
+      <div class="product-container">
+        <img class="product-image" [src]="[product?.images[0]]" (load)="onImageLoad()">
+        <h5 class="text-center product-title">{{product?.name | uppercase}}</h5>
+        <!--<p class="product-price text-center">${{product.pr}}</p>-->
+      </div>
+    </div>
+  </div>
+</div>

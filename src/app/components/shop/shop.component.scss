@@ -1,0 +1,26 @@
+.shop {
+  min-height: 40vh;
+  padding-top: 90px;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.product-container {
+  width: 100%;
+  height: auto;
+
+  .product-image {
+    max-width: 100%;
+  }
+
+  .product-title {
+    margin-top: 5px;
+    padding: 0 50px;
+    font-weight: bolder;
+  }
+
+  .product-price {
+    font-size: 12px;
+  }
+
+}
