@@ -48,8 +48,13 @@ export interface SelectedAttributeModel {
 }
 
 export interface ShoppingCartItemModel {
-  sku: string;
+  type: string;
+  parent: string;
   quantity: number;
+  attributes: AttributeModel[];
+  productName: string;
+  images: string[];
+  price: number;
 }
 
 

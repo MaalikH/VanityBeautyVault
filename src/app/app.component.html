@@ -27,8 +27,8 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item" [routerLink]="['active']">
-        <a class="nav-link" [href]="links?.acuityLink">BOOK AN APPOINTMENT</a>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['/checkout']">CART ( {{shoppingCart.length}} )</a>
       </li>
     </ul>
   </div>

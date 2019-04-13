@@ -14,7 +14,6 @@ export class HomeBlogComponent implements OnInit {
 
   ngOnInit() {
     this.blogService.getLatestPosts().subscribe((data: BlogModel) => {
-      console.log('DATA', data);
       this.latestPosts = data;
     });
   }

@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit {
 
   onImageLoad() {
     this.imageLoaded = true;
-    console.log('iMage loaded', this.imageLoaded);
+    // console.log('iMage loaded', this.imageLoaded);
   }
 
   onClickProduct(productID: string) {
@@ -38,7 +38,7 @@ export class ShopComponent implements OnInit {
   }
 
   onLoad() {
-    console.log('LOADED ---------------------');
+    // console.log('LOADED ---------------------');
   }
 
 

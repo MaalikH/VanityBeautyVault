@@ -9,6 +9,8 @@ import {AlertService} from './services/alert-service/alert.service';
 import {AlertModel} from './models/alert.model';
 import {NavbarService} from './services/navbar-service/navbar.service';
 import {LinkModel} from './models/common.model';
+import {ShopService} from './components/shop/services/shop.service';
+import {ShoppingCartItemModel} from './components/shop/models/sku.model';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,7 @@ export class AppComponent implements OnInit {
   showNavbar = true;
   title = 'VanityBeautyVault';
   links: LinkModel;
+  shoppingCart: ShoppingCartItemModel[];
   alert: AlertModel = {
     type: 'success',
     message: null,
@@ -32,7 +35,8 @@ export class AppComponent implements OnInit {
     private db: AngularFireDatabase,
     private firebase: FirebaseService,
     private alertService: AlertService,
-    private navbarService: NavbarService
+    private navbarService: NavbarService,
+    private shopService: ShopService
   ) {
   }
 
@@ -57,6 +61,10 @@ export class AppComponent implements OnInit {
 
       }
     });
+
+    this.shopService.shoppingCartObs.subscribe((data: ShoppingCartItemModel[]) => {
+      this.shoppingCart = data;
+    })
 
     this.navbarService.navbar.subscribe((showNavbar: boolean) => {
       this.showNavbar = showNavbar;

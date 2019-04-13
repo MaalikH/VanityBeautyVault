@@ -19,7 +19,6 @@ export class BlogPostComponent implements OnInit {
       const postID = data.params.id;
       this.blogService.getPost(postID).subscribe((post: any) => {
         this.post = post;
-        console.log('POST', this.post);
       });
     });
   }

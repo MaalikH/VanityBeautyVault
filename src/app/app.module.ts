@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
+import { NgxStripeModule } from 'ngx-stripe';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
@@ -44,6 +45,7 @@ import { HomeBlogPostComponent } from './components/home-page/home-blog/home-blo
 import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blog-page-post.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
+import { CheckoutPageComponent } from './components/shop/checkout-page/checkout-page.component';
 
 
 @NgModule({
@@ -80,6 +82,7 @@ import { ShopItemComponent } from './components/shop/shop-item/shop-item.compone
     BlogPagePostComponent,
     ShopComponent,
     ShopItemComponent,
+    CheckoutPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +96,9 @@ import { ShopItemComponent } from './components/shop/shop-item/shop-item.compone
     NgbModule,
     NgbDropdownModule,
     NgbAlertModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot('pk_test_960ScFC3fHEUTpi25exQEM00')
   ],
   providers: [
     { provide: FunctionsRegionToken, useValue: 'us-central1' }

@@ -81,7 +81,7 @@ export class ShopItemComponent implements OnInit {
 
   ngOnInit() {
       this.shopService.shoppingCartObs.subscribe((data: any) => {
-        console.log('SHOPPING CART CHANGED', data);
+        // console.log('SHOPPING CART CHANGED', data);
       });
   }
 
@@ -95,7 +95,6 @@ export class ShopItemComponent implements OnInit {
         this.productAttributes[i].selected = option;
       }
     }
-    // console.log('Attribute', attribute, 'Option', option);
   }
 
   addItemToCart(attributes: AttributeModel[]) {
@@ -107,19 +106,23 @@ export class ShopItemComponent implements OnInit {
       }
       const getSKUByCategory = this.fns.httpsCallable('stripeGetSKUByCategory');
       const shoppingCartItem: ShoppingCartItemModel = {
-        sku: '',
-        quantity: 1
+        type: 'sku',
+        parent: '',
+        quantity: 1,
+        attributes: attributes,
+        productName: this.product.name,
+        images: this.product.images,
+        price: 0
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
-        console.log('DATA', data.data[0].id);
-        shoppingCartItem.sku = data.data[0].id;
+        shoppingCartItem.parent = data.data[0].id;
+        shoppingCartItem.price = data.data[0].price;
         const tempCart = this.shopService.getCart();
-        if (!!tempCart.find(x => x.sku === shoppingCartItem.sku)) {
-          tempCart.find(o => o.sku === shoppingCartItem.sku).quantity++;
+        if (!!tempCart.find(x => x.parent === shoppingCartItem.parent)) {
+          tempCart.find(o => o.parent === shoppingCartItem.parent).quantity++;
         } else {
           tempCart.push(shoppingCartItem);
         }
-        console.log('Temp Cart', tempCart);
         this.shopService.addItemToCart(tempCart);
       });
     }

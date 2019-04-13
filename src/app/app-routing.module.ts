@@ -11,6 +11,7 @@ import {BlogPageComponent} from './components/blog-page/blog-page.component';
 import {BlogPostComponent} from './components/blog-post/blog-post.component';
 import {ShopComponent} from './components/shop/shop.component';
 import {ShopItemComponent} from './components/shop/shop-item/shop-item.component';
+import {CheckoutPageComponent} from './components/shop/checkout-page/checkout-page.component';
 
 const routes: Routes = [
 
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'shop/:productID',
     component: ShopItemComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutPageComponent,
   }
 ];
 
