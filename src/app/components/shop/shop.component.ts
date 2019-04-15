@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import {HttpClient} from '@angular/common/http';
 import {ProductModel} from './models/products.model';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ShopService} from './services/shop.service';
+import {element} from 'protractor';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+import { PageScrollService } from 'ngx-page-scroll-core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-shop',
@@ -12,24 +17,79 @@ import {ShopService} from './services/shop.service';
 })
 export class ShopComponent implements OnInit {
   products: ProductModel[] = [];
+  filteredProducts: ProductModel[] = [];
   productsLoaded = false;
   imageLoaded = false;
+  categories: string[];
+  activeCategory = 'all';
 
-  constructor(private fns: AngularFireFunctions, private shopService: ShopService, private router: Router) {
+  constructor(private fns: AngularFireFunctions, private shopService: ShopService, private router: Router,
+              private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
+              private route: ActivatedRoute) {
+
+    /**
     const getProducts = this.fns.httpsCallable('stripeGetProducts');
     getProducts({}).subscribe((data: any) => {
       this.products = data.data;
       this.productsLoaded = true;
+      console.log('PRODUCTS LOADED');
     });
+     **/
+
+
   }
 
   ngOnInit() {
-
+    // this.products = this.shopService.products;
+    this.shopService.productsObs.subscribe((data: any) => {
+      this.products = data.data;
+      this.getCategories(this.products);
+      this.filterProducts(this.activeCategory);
+    });
+    setTimeout( () => {
+      this.productsLoaded = true;
+    }, 500);
   }
+
+  changeCategory(category: string) {
+    this.activeCategory = category;
+    this.filterProducts(this.activeCategory);
+  }
+
+  getCategories(products: ProductModel[]) {
+    let arr = ['all'];
+    for (let i = 0; i < products.length; i++) {
+      console.log('PRODUCT', products[i])
+      if (!arr.includes(products[i].metadata.category)) {
+        arr.push(products[i].metadata.category);
+      }
+    }
+    console.log('CATEGORIES', arr);
+    this.categories = (arr);
+  }
+
+  filterProducts(type: string) {
+    console.log('PRODUCTS', this.products);
+    this.activeCategory = type;
+    if (type === 'all' || type === null) {
+      this.filteredProducts = this.products;
+    } else {
+      this.filteredProducts = _.filter(this.products, item => item.metadata.category === this.activeCategory);
+    }
+    console.log('FILTERD PRODUCTS', this.filteredProducts);
+  }
+
+  scrollToProducts() {
+  this.pageScrollService.scroll({
+    document: this.document,
+    scrollTarget: '.products',
+    scrollOffset: 30
+  });
+}
 
   onImageLoad() {
     this.imageLoaded = true;
-    // console.log('iMage loaded', this.imageLoaded);
+    console.log('iMage loaded', this.imageLoaded);
   }
 
   onClickProduct(productID: string) {
@@ -37,8 +97,9 @@ export class ShopComponent implements OnInit {
     this.router.navigate(['shop', productID]);
   }
 
-  onLoad() {
-    // console.log('LOADED ---------------------');
+  scrollToElement(el: HTMLElement): void {
+    console.log(el);
+    el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
 

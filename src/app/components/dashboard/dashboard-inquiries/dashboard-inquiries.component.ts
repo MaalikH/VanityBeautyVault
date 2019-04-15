@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../../services/data-service/data.service';
 import {UnreadService} from '../services/unread.service';
 import {ContactModel} from '../../../models/contact.model';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 
 @Component({

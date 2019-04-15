@@ -20,6 +20,7 @@ export class ShopItemComponent implements OnInit {
   productAttributes: AttributeModel[] = [];
   skus: SKUsModel;
   productLoaded = false;
+  selectedItem: ShoppingCartItemModel;
   selectedAttributes: SelectedAttributeModel[] = [];
 
   constructor(private shopService: ShopService, private fns: AngularFireFunctions, private route: ActivatedRoute) {
@@ -80,12 +81,15 @@ export class ShopItemComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.shopService.shoppingCartObs.subscribe((data: any) => {
-        // console.log('SHOPPING CART CHANGED', data);
-      });
+    this.shopService.shoppingCartObs.subscribe((data: any) => {
+      // console.log('SHOPPING CART CHANGED', data);
+    });
+    setTimeout(() => {
+      this.setSelectedAttribute(this.productAttributes);
+    }, 1000);
   }
 
-  selectAttribute(attribute: string, option: string) {
+  selectAttribute(attribute: string, option: string, attributes: AttributeModel[]) {
     const selectedAttribute: SelectedAttributeModel = {
       attributeName: attribute,
       attributeValue: option
@@ -95,10 +99,10 @@ export class ShopItemComponent implements OnInit {
         this.productAttributes[i].selected = option;
       }
     }
+    this.setSelectedAttribute(this.productAttributes);
   }
 
-  addItemToCart(attributes: AttributeModel[]) {
-
+  setSelectedAttribute(attributes: AttributeModel[]) {
     if (attributes.length > 0) {
       const attributesObj = {};
       for (const key of attributes) {
@@ -115,6 +119,31 @@ export class ShopItemComponent implements OnInit {
         price: 0
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
+        shoppingCartItem.parent = data.data[0].id;
+        shoppingCartItem.price = data.data[0].price;
+        this.selectedItem = shoppingCartItem;
+      });
+     }
+  }
+
+  addItemToCart(attributes: AttributeModel[]) {
+    if (attributes.length > 0) {
+      const attributesObj = {};
+      for (const key of attributes) {
+        attributesObj[key.name] = key.selected;
+      }
+      const getSKUByCategory = this.fns.httpsCallable('stripeGetSKUByCategory');
+      const shoppingCartItem: ShoppingCartItemModel = {
+        type: 'sku',
+        parent: '',
+        quantity: 1,
+        attributes: attributes,
+        productName: this.product.name,
+        images: this.product.images,
+        price: 0
+      };
+      getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
+        console.log('DATA', data);
         shoppingCartItem.parent = data.data[0].id;
         shoppingCartItem.price = data.data[0].price;
         const tempCart = this.shopService.getCart();

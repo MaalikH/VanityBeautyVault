@@ -1,12 +1,8 @@
 <div class="container-fluid contact">
   <div class="row contact-header">
-    <div class="col-12">
-      <div class="container">
-        <div class="row ">
-          <div class="col-lg-6">
-          <p class="contact-heading">{{ contactInfo?.contactHeading }}</p>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col-lg-8 d-flex align-items-center">
+        <p class="contact-heading">{{ contactInfo?.contactHeading }}</p>
       </div>
     </div>
   </div>
@@ -19,23 +15,28 @@
         </div>
         <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
           <div class="form-group">
-            <label for="name">Name (Required)</label>
-            <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="contactMessage.name" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="Name (Required)"
+                   [(ngModel)]="contactMessage.name" name="name" required>
           </div>
           <div class="form-group">
-            <label for="email">Email (Required)</label>
-            <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="contactMessage.email" name="email" email required>
+            <input type="email" class="form-control" id="email" placeholder="Email (Required)"
+                   [(ngModel)]="contactMessage.email" name="email" email required>
           </div>
           <div class="form-group">
-            <label for="message">Message (Required)</label>
-            <textarea type="text" class="form-control contact-message" id="message" placeholder="Your Message" [(ngModel)]="contactMessage.message" name="message" required></textarea>
+            <textarea type="text" class="form-control contact-message" id="message"
+                      placeholder="Your Message (Required)" [(ngModel)]="contactMessage.message" name="message"
+                      required></textarea>
           </div>
-          <button type="submit" class="btn btn-light info-button sparkley1" [disabled]="!contactForm.form.valid">{{ contactInfo?.button }}</button>
+          <button type="submit" class="btn btn-light info-button sparkley1" [disabled]="!contactForm.form.valid">{{
+            contactInfo?.button }}
+          </button>
         </form>
       </div>
       <div class="col-lg-5">
         <div class="info">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106111.61811279971!2d-84.44955576504019!3d33.78680634622704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504420bd78c53%3A0x878c894c30b9bbe2!2sMidtown%2C+Atlanta%2C+GA!5e0!3m2!1sen!2sus!4v1551233950177" class="map" frameborder="0" style="border:0" allowfullscreen></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106111.61811279971!2d-84.44955576504019!3d33.78680634622704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504420bd78c53%3A0x878c894c30b9bbe2!2sMidtown%2C+Atlanta%2C+GA!5e0!3m2!1sen!2sus!4v1551233950177"
+            class="map" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
     </div>

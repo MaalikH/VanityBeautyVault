@@ -118,10 +118,14 @@ export class CheckoutPageComponent implements OnInit {
             skuItems.push(skuObject);
           }
           const createOrder = this.fns.httpsCallable('stripeCreateOrder');
-          createOrder({email: this.customerEmail, name: `${this.shipping.firstName} + ${this.shipping.lastName}`, items: skuItems, line1: this.shipping.address1, city: this.shipping.city, state: this.shipping.state, country: 'us', postal_code: this.shipping.zipcode}).subscribe((data: any) => {
+          createOrder({email: this.customerEmail, name: `${this.shipping.firstName} ${this.shipping.lastName}`, items: skuItems, line1: this.shipping.address1, city: this.shipping.city, state: this.shipping.state, country: 'us', postal_code: this.shipping.zipcode}).subscribe((data: any) => {
             if (data.id) {
+              const cus = data.customer;
               const payOrder = this.fns.httpsCallable('stripePayOrder');
-              payOrder({orderID: data.id, source: result.token.id}).subscribe((purchaseData: any) => {
+              payOrder({orderID: data.id, source: result.token.id, customer: this.customerEmail}).subscribe((purchaseData: any) => {
+                const updateCharge = this.fns.httpsCallable('stripeUpdateCharge');
+                updateCharge({charge: purchaseData.charge, email: this.customerEmail}).subscribe((chargeUpdateData: any) => {
+                });
                 this.router.navigate(['/home']);
                 this.alertService.newAlert('success', 'Your order was successful, please check your email for confirmation', true, true, 'Purchase Success!');
                 this.shopService.addItemToCart([]);

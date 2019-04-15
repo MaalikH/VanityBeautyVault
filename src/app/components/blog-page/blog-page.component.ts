@@ -10,10 +10,18 @@ import BlogModel = namespace.BlogModel;
 export class BlogPageComponent implements OnInit {
 
   posts: BlogModel;
+  dataRetrieved = false;
 
   constructor(private blogService: BlogServiceService) {
+    /**
     this.blogService.getPosts().subscribe((data: BlogModel) => {
       this.posts = data;
+    });**/
+
+    this.blogService.productsObs.subscribe((data: BlogModel) => {
+      this.posts = data;
+      this.dataRetrieved = true;
+      console.log('Data');
     });
   }
 

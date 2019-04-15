@@ -1,11 +1,15 @@
 <div class="container-fluid blog">
-  <div class="row blog-header">
-    <div class="col-12">
+  <div class="container blog-posts" *ngIf="!posts?.items && dataRetrieved">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3 class="coming-soon">COMING SOON</h3>
     </div>
   </div>
+</div>
+
   <div class="container blog-posts" *ngIf="posts?.items">
   <div class="row">
-    <div class="col-md-6" *ngFor="let post of posts?.items">
+    <div class="col-md-4" *ngFor="let post of posts?.items">
       <app-blog-page-post [post]="post"></app-blog-page-post>
     </div>
   </div>

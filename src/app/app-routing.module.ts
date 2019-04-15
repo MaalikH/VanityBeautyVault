@@ -58,7 +58,7 @@ const routes: Routes = [
     component: BlogPostComponent,
   },
   {
-    path: 'shop',
+    path: 'shop/products',
     component: ShopComponent
   },
   {

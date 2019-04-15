@@ -6,9 +6,8 @@
   text-align: center;
   margin-bottom: 0;
   color: white;
-  background-image: url("../../../../assets/background/RoseBGDARKER.png");
   background-size: cover;
-  background-attachment: fixed;
+  background: url("../../../../assets/background/RoseBGDARKER.png") fixed;
   border-bottom: 1px solid white;
 
   .center {
@@ -97,19 +96,11 @@
     }
 
     .jumbotron-fluid {
-      background-attachment: scroll;
+      background-attachment: scroll !important;
     }
   }
 
-  @media (min-width: 576px) and (max-width: 767.98px) {
-    .center {
-      height: 300px;
-    }
 
-    .jumbotron-fluid {
-      background-attachment: scroll;
-    }
-  }
 
   @media (min-width: 768px) and (max-width: 991.98px) {
     .vault {
@@ -127,4 +118,14 @@
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) { }
 
+}
+
+@media (max-width: 576px) {
+  .center {
+    height: 300px;
+  }
+
+  .jumbotron-fluid {
+    background-attachment: scroll;
+  }
 }

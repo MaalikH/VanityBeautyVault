@@ -1,20 +1,24 @@
-<div class="container-fluid blog" *ngIf="post">
-  <div class="row blog-header">
-    <div class="col-12 d-flex justify-content-center align-items-center">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-12">
-            <p class="blog-heading">{{ post?.title }}</p>
-            <p>{{ post?.published | date }}</p>
+<div class="container-fluid blog">
+  <div *ngIf="post">
+    <div class="row blog-header">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-lg-12">
+              <p class="blog-heading">{{ post?.title }}</p>
+              <p>{{ post?.published | date }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 blog-text">
-        <div class="blog-content" [innerHTML]="post?.content">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 blog-text">
+          <div class="blog-content" [innerHTML]="post?.content">
+          </div>
         </div>
+      </div>
+    </div>
   </div>
 </div>

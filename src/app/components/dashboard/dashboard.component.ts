@@ -4,7 +4,8 @@ import {DashboardService} from './services/dashboard.service';
 import {UnreadService} from './services/unread.service';
 import {ContactModel} from '../../models/contact.model';
 import {DataService} from '../../services/data-service/data.service';
-import _ from 'lodash';
+import * as _ from 'lodash';
+import { map, filter} from 'lodash';
 
 @Component({
   selector: 'app-dashboard',

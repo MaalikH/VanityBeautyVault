@@ -25,5 +25,10 @@
     min-height: 20vh;
   }
 
+}
 
+@media (max-width: 576px) {
+  .services {
+    background-attachment: scroll;
+  }
 }

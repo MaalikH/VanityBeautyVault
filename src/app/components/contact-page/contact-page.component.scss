@@ -1,9 +1,8 @@
 .contact {
   min-height: 90vh;
-  padding-top: 50px;
   padding-bottom: 50px;
   background-color: black;
-  background: url("../../../assets/background/RoseBGDARKER.png");
+  // background: url("../../../assets/background/RoseBGDARKER.png");
   background-size: cover;
   color: white;
 }
@@ -14,15 +13,29 @@
       rgba(255, 117, 117, .7)
   ), url("../../../assets/common/IMG_5457.jpg");
   background-size: cover;
+  min-height: 315px;
 }
 
 .contact-heading {
   font-size: 75px;
+  padding-left: 75px;
   color: white;
+  font-weight: 200;
 }
 
 .contact-form {
   padding-top: 50px;
+}
+
+.form-control {
+  background-color: black;
+  border-radius: 0;
+  color: white;
+  border-width: 0px 0px 1px 0px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
 
 .contact-message {

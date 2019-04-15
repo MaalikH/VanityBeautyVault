@@ -5,7 +5,7 @@ import {FirebaseService} from '../../services/firebase-service/firebase.service'
 import {AngularFireDatabase} from '@angular/fire/database';
 import {DataService} from '../../services/data-service/data.service';
 import {Service} from '../../models/service.model';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import {combineLatest} from 'rxjs';
 
 @Component({

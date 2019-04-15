@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../../services/data-service/data.service';
 import {DashboardService} from '../services/dashboard.service';
 import {Service} from '../../../models/service.model';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard-services',

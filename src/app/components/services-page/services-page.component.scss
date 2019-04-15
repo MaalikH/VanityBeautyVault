@@ -1,5 +1,5 @@
 .container-fluid {
-  padding-top: 85px;
+  padding-top: 20px;
   color: white;
   min-height: 90vh;
   background: url("../../../assets/background/RoseBGDARKER.png");
@@ -13,6 +13,7 @@
 
 .nav-link {
   color: white;
+  font-size: 16px !important;
 }
 
 .nav-link.active {
@@ -47,6 +48,7 @@
 
   .container-fluid {
     background-attachment: scroll;
+    background-size: contain;
   }
 }
 

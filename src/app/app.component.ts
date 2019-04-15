@@ -11,6 +11,8 @@ import {NavbarService} from './services/navbar-service/navbar.service';
 import {LinkModel} from './models/common.model';
 import {ShopService} from './components/shop/services/shop.service';
 import {ShoppingCartItemModel} from './components/shop/models/sku.model';
+import {BlogServiceService} from './services/blog-service/blog-service.service';
+import BlogModel = namespace.BlogModel;
 
 @Component({
   selector: 'app-root',
@@ -36,8 +38,10 @@ export class AppComponent implements OnInit {
     private firebase: FirebaseService,
     private alertService: AlertService,
     private navbarService: NavbarService,
-    private shopService: ShopService
+    private shopService: ShopService,
+    private blogService: BlogServiceService
   ) {
+    this.shopService.getProductDataObs();
   }
 
   ngOnInit() {
@@ -62,15 +66,18 @@ export class AppComponent implements OnInit {
       }
     });
 
+    // this.shopService.getProductDataObs();
+    this.shopService.productsObs.subscribe((data: any) => {
+      console.log('OBS DATA', data);
+      this.shopService.getCategories(data);
+    });
+    this.blogService.getPostsObs();
     this.shopService.shoppingCartObs.subscribe((data: ShoppingCartItemModel[]) => {
       this.shoppingCart = data;
-    })
-
+    });
     this.navbarService.navbar.subscribe((showNavbar: boolean) => {
       this.showNavbar = showNavbar;
-    })
-
-    this.alertService.alert.subscribe((alert: AlertModel) => {
+    });    this.alertService.alert.subscribe((alert: AlertModel) => {
       this.alert = alert;
     });
     this.alertService.alert.pipe(

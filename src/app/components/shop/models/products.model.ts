@@ -1,5 +1,6 @@
 export interface Metadata {
     category: string;
+    price: number;
   }
 
   export interface ProductModel {

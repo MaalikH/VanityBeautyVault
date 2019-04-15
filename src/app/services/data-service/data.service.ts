@@ -11,6 +11,7 @@ import {Subscribers} from '../../models/email-list.model';
 import {Classes} from '../../models/classes.model';
 import {ClassModel} from '../../models/class.model';
 import {Portfolio} from '../../models/portfolio.model';
+import {AngularFireFunctions} from '@angular/fire/functions';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class DataService {
   private dataRetrievedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dataRetrieved: Observable<boolean> = this.dataRetrievedSubject.asObservable();
 
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService, private fns: AngularFireFunctions) { }
 
   getHomePageData(): Observable<HomePage> {
     return this.firebaseService.getItem('home');

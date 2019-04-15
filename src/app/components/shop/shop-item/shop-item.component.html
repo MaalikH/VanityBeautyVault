@@ -1,23 +1,34 @@
 <div class="container shop-item">
   <div class="row" *ngIf="productLoaded">
-    <div class="col-md-4">
+    <div class="col-md-7">
       <img class="product-image" [src]="product?.images[0]">
     </div>
-    <div class="col-md-8">
-      <h3 class="product-name">{{product?.name}}</h3>
-      <p class="product-price">$15.99</p>
-      <p class="product-desc">{{product?.description}}</p>
-      <div class="attributes-container d-flex flex-row" *ngIf="product.attributes.length > 0">
+    <div class="col-md-5">
+      <div class="product-info">
+        <button class="btn info-button" [routerLink]="['/shop/products']">Back To Shop</button>
+        <h3 class="product-name">{{product?.name}}</h3>
+        <p class="product-caption">{{product?.caption}}</p>
+        <p class="product-price">${{product?.metadata.price / 100 | number: '1.2-2' }}</p>
+      </div>
+      <div class="attributes-container d-flex flex-column" *ngIf="product.attributes.length > 0">
+        <div class="attribute-container" *ngFor="let attribute of productAttributes">
+          <p class="product-attribute">SELECT: {{attribute.name | uppercase}}:</p>
+          <button class="btn btn-type" *ngFor="let option of attribute.options">{{option}}</button>
+        </div>
+        <button class="btn btn-dark" *ngFor="">Attribute</button>
+        <!--
         <div class="dropdown-container" *ngFor="let attrbute of productAttributes">
           <p class="product-attribute">{{attrbute.name | uppercase}}:</p>
           <div ngbDropdown class="d-inline-block">
             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{attrbute.selected}}</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button class="dropdown-item" ngbDropdownItem *ngFor="let option of attrbute.options" (click)="selectAttribute(attrbute.name, option)">{{option}}</button>
+              <button class="dropdown-item" ngbDropdownItem *ngFor="let option of attrbute.options" (click)="selectAttribute(attrbute.name, option, productAttributes)">{{option}}</button>
             </div>
           </div>
         </div>
+        -->
       </div>
+      <p class="product-desc">{{product?.description}}</p>
       <div class="row">
         <div class="col-12">
           <div class="btn btn-outline-primary" (click)="addItemToCart(productAttributes)">Add To Cart</div>

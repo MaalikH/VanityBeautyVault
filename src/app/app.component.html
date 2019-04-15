@@ -1,4 +1,4 @@
-<nav *ngIf="showNavbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="showNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand navbar-brand-home" href="#">
     <img class="vanity-brand" src="../assets/common/VanityLashLogo.png">
   </a>
@@ -20,7 +20,7 @@
         <a class="nav-link" [routerLink]="['/blog']" href="#">BLOG</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/shop']" href="#">SHOP</a>
+        <a class="nav-link" [routerLink]="['/shop/products']" href="#">SHOP</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/contact']" href="#">CONTACT</a>
@@ -60,7 +60,7 @@
         </div>
       </div>
       </div>
-    <div class="col-md-4 justify-content-center align-self-center">
+    <div class="col-md-4 icons justify-content-center align-self-center">
       <a [href]="links?.instagramLink">
         <img class="icon" src="../assets/common/instagram-256.png">
       </a>

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { AngularFireModule } from '@angular/fire';
 import { NgxStripeModule } from 'ngx-stripe';
 import { environment } from '../environments/environment';
@@ -98,7 +99,8 @@ import { CheckoutPageComponent } from './components/shop/checkout-page/checkout-
     NgbAlertModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxStripeModule.forRoot('pk_test_960ScFC3fHEUTpi25exQEM00')
+    NgxPageScrollCoreModule,
+    NgxStripeModule.forRoot('pk_live_tQtMAAhPLXkmMhPJm06eWUUu')
   ],
   providers: [
     { provide: FunctionsRegionToken, useValue: 'us-central1' }

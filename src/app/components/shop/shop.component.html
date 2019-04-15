@@ -1,9 +1,26 @@
 <div class="container-fluid shop">
-  <div class="row" *ngIf="productsLoaded" [hidden]="!imageLoaded">
-    <div class="col-md-4" *ngFor="let product of products" (click)="onClickProduct(product.id)">
+  <div class="row shop-header d-flex align-items-center">
+    <div class="col-lg-6">
+      <p class="shop-heading">VANITY PRODUCTS</p>
+      <p class="shop-info">BUILT TO LAST, ALL SUGARLASH PRO LASHES ARE PACKED IN HARD-CASE PLASTIC TRAYS. EACH ONE HAS A LASH-TYPE LABEL, AS WELL AS LENGTH INDICATOR STRIPS ON EACH INDIVIDUAL ROW FOR OPTIMAL ORGANIZATION. ALL LASH TRAYS HAVE 16 ROWS AND OVER 4,000 LASHES PER TRAY, SO OUR PACKAGING KEEPS THINGS STYLISH, SIMPLE AND EASY TO USE.</p>
+      <button type="button" class="btn btn-light info-button" (click)="scrollToProducts()">SHOP NOW</button>
+    </div>
+  </div>
+  <nav class="navbar sticky-top navbar-dark bg-dark" id="navbar">
+    <div class="navbar-nav d-flex flex-row">
+      <a class="nav-item nav-link" (click)="changeCategory(category)" [ngClass]="{'active': category === activeCategory }" *ngFor="let category of categories">{{category | uppercase}}</a>
+    </div>
+  </nav>
+
+  <div class="row products" *ngIf="productsLoaded" [hidden]="!imageLoaded">
+    <div class="col-md-4" *ngFor="let product of filteredProducts" (click)="onClickProduct(product.id)">
       <div class="product-container">
-        <img class="product-image" [src]="[product?.images[0]]" (load)="onImageLoad()">
-        <h5 class="text-center product-title">{{product?.name | uppercase}}</h5>
+        <img class="product-image text-center" [src]="[product?.images[0]]" (load)="onImageLoad()">
+        <a class="product-info">
+          <p class="product-title">{{product?.name | uppercase}}</p>
+          <p class="product-caption" *ngIf="product?.caption">{{product?.caption | uppercase }}</p>
+          <p class="product-price">${{product?.metadata.price / 100 | number : '1.2-2'}}</p>
+        </a>
         <!--<p class="product-price text-center">${{product.pr}}</p>-->
       </div>
     </div>

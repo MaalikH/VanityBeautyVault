@@ -5,24 +5,33 @@
   ), url("../../../assets/common/IMG_5457.jpg");
   background-size: cover;
   height: 35vh;
-  background-size: cover;
 }
 
 .blog {
-  background: black url("../../../assets/background/RoseBGDARKER.png");
   background-size: cover;
-  background-attachment: fixed;
+  background: black url("../../../assets/background/RoseBGDARKER.png") fixed;
+  min-height: 90vh;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
+
+.coming-soon {
+  font-weight: bolder;
+  color: white;
+}
+
+.blog-heading {
+  font-size: 75px;
+  color: white;
+  font-weight: normal;
+}
+
 .card-img-top {
   height: 300px;
 }
 
 .card {
   margin: 20px 0px
-}
-
-.blog {
-  padding-top: 50px;
 }
 
 .blog-posts {
@@ -42,4 +51,13 @@
 
 .card-text {
   font-size: 16px;
+}
+
+@media (max-width: 576px) {
+  .blog-heading {
+    font-size: 60px;
+    color: white;
+    font-weight: normal;
+  }
+  
 }

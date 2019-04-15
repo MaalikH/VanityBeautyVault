@@ -1,26 +1,98 @@
 .shop {
-  min-height: 40vh;
-  padding-top: 90px;
-  padding-bottom: 50px;
+  min-height: 90vh;
   background-color: white;
+
+  .navbar {
+    color: white;
+    background-color: black;
+
+    .nav-link {
+      padding: 0 15px;
+      font-size: 15px !important;
+      color: white;
+      font-weight: 400;
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.shop-header {
+  height: 90vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, .7),
+      rgba(0, 0, 0, .7)
+  ), url("../../../assets/background/subscribeBG.jpg");
+  color: white;
+  padding-left: 60px;
+}
+
+.shop-heading {
+  font-weight: bolder;
+  font-size: 3em;
+}
+
+.shop-info {
+  font-size: 13px;
+}
+
+.info-button {
+  margin-top: 25px !important;
+
+}
+
+.products {
+  padding: 50px 100px;
+}
+
+.product-info {
+  padding: 10px 50px;
+  text-align: left;
 }
 
 .product-container {
   width: 100%;
   height: auto;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .product-image {
     max-width: 100%;
   }
 
   .product-title {
-    margin-top: 5px;
-    padding: 0 50px;
-    font-weight: bolder;
+    margin-bottom: 1px;
+    font-weight: 600;
+    font-size: 17px;
+  }
+
+  .product-caption {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 1px;
   }
 
   .product-price {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 1px;
   }
 
+}
+
+@media (min-width: 1196px) {
+  .shop {
+    padding: 0 0 50px;
+  }
 }
