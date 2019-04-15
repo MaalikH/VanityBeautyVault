@@ -6,11 +6,13 @@
       <button type="button" class="btn btn-light info-button" (click)="scrollToProducts()">SHOP NOW</button>
     </div>
   </div>
+  <div class="row">
   <nav class="navbar sticky-top navbar-dark bg-dark" id="navbar">
     <div class="navbar-nav d-flex flex-row">
       <a class="nav-item nav-link" (click)="changeCategory(category)" [ngClass]="{'active': category === activeCategory }" *ngFor="let category of categories">{{category | uppercase}}</a>
     </div>
   </nav>
+  </div>
 
   <div class="row products" *ngIf="productsLoaded" [hidden]="!imageLoaded">
     <div class="col-md-4" *ngFor="let product of filteredProducts" (click)="onClickProduct(product.id)">

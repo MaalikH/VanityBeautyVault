@@ -1,8 +1,29 @@
 <div class="container shop-item">
   <div class="row" *ngIf="productLoaded">
     <div class="col-md-7">
-      <img class="product-image" [src]="product?.images[0]">
+      <img [hidden]="!imageLoad" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="selectedItem?.image" [src]="selectedItem?.image" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
+      <!--
+     <ngx-image-zoom
+       [thumbImage] = selectedItem?.image
+       [zoomMode]="hover"
+       [enableLens]="true">
+     ></ngx-image-zoom>
+     <img [hidden]="!imageLoad" class="product-image" [src]="selectedItem?.image" (load)="productImageLoad()">-->
     </div>
+    <!--
+    <div class="col-md-7 d-flex flex-row">
+      <div class="img-thumb-container">
+        <div class="d-flex flex-row">
+          <div class="img-thumb-holder" *ngFor=" let image of product.images" (click)="selectImage(image)">
+              <img class="img-thumb" [src]="image">
+          </div>
+        </div>
+      </div>
+      <div class="main-image-container" *ngFor="let image of product.images">
+        <img class="main-image" [src]="image" *ngIf="image === selectedImage">
+      </div>
+    </div>
+    -->
     <div class="col-md-5">
       <div class="product-info">
         <button class="btn info-button" [routerLink]="['/shop/products']">Back To Shop</button>
@@ -10,29 +31,21 @@
         <p class="product-caption">{{product?.caption}}</p>
         <p class="product-price">${{product?.metadata.price / 100 | number: '1.2-2' }}</p>
       </div>
-      <div class="attributes-container d-flex flex-column" *ngIf="product.attributes.length > 0">
+      <div class="attributes-container d-flex flex-column" *ngIf="product.attributes.length > 0; let i = index">
         <div class="attribute-container" *ngFor="let attribute of productAttributes">
-          <p class="product-attribute">SELECT: {{attribute.name | uppercase}}:</p>
-          <button class="btn btn-type" *ngFor="let option of attribute.options">{{option}}</button>
+          <p class="product-attribute">SELECT:{{attribute.name | uppercase}}:</p>
+          <button class="btn btn-type" *ngFor="let option of attribute.options"
+                  [ngClass]="{'active': option === attribute.selected}"
+                  (click)="selectAttribute(attribute.name, option, productAttributes)">{{option | uppercase}}
+          </button>
         </div>
         <button class="btn btn-dark" *ngFor="">Attribute</button>
-        <!--
-        <div class="dropdown-container" *ngFor="let attrbute of productAttributes">
-          <p class="product-attribute">{{attrbute.name | uppercase}}:</p>
-          <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{attrbute.selected}}</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button class="dropdown-item" ngbDropdownItem *ngFor="let option of attrbute.options" (click)="selectAttribute(attrbute.name, option, productAttributes)">{{option}}</button>
-            </div>
-          </div>
-        </div>
-        -->
       </div>
-      <p class="product-desc">{{product?.description}}</p>
-      <div class="row">
-        <div class="col-12">
-          <div class="btn btn-outline-primary" (click)="addItemToCart(productAttributes)">Add To Cart</div>
-        </div>
+      <button class="btn info-button cart-button" (click)="addItemToCart(productAttributes)">ADD TO BAG</button>
+      <button class="btn info-button cart-button d-lg-none" [routerLink]="['/checkout']">VIEW CART</button>
+      <div class="description-container">
+        <p class="description-title">DESCRIPTION</p>
+        <p class="product-desc">{{product?.description | uppercase}}</p>
       </div>
     </div>
   </div>

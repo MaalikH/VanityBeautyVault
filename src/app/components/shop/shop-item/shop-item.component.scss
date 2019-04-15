@@ -1,3 +1,18 @@
+/**.ngxImageZoomContainer {
+  max-width: 100% !important;
+  max-height: 300px !important;
+}
+
+:host.ngxImageZoomContainer{
+    max-width: 100% !important;
+    max-height: 300px !important;
+}
+
+::ng-deep .ngxImageZoomContainer{
+  max-width: 75% !important;
+  height: auto !important;
+} **/
+
 .shop-item {
   min-height: 90vh;
   padding-top: 10px;
@@ -14,13 +29,54 @@
     border-width: 2px;
   }
 
+  .img-thumb-container {
+    max-width: 40%;
+  }
+
+  .img-thumb-holder {
+    margin-right: 15px;
+  }
+
+  .main-image-container {
+    max-width: 60%;
+  }
+
+  .main-image {
+    max-width: 100%;
+  }
+
+  .img-thumb {
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  .attributes-container {
+    border-bottom: 1px solid black;
+  }
+
   .attribute-container {
     margin-top: 10px;
     margin-bottom: 25px;
   }
+
+  .description-container {
+    padding-top: 25px;
+  }
+
+  .cart-button {
+    background-color: black !important;
+    color: white !important;
+    margin-right: 10px;
+  }
   .product-name {
     font-weight: 900;
     margin: 0;
+  }
+
+  .description-title {
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 5px;
   }
 
   .btn-type {
@@ -29,6 +85,13 @@
     border-radius: 50px;
     border-color: black;
     border-width: 2px;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+
+  .active {
+    background-color: black;
+    color: white !important;
   }
 
   .product-caption {

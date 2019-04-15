@@ -1,8 +1,9 @@
-<div class="container checkout">
+<div class="container checkout" [ngClass]="{'center': shoppingCart.length === 0}">
 
   <div class="row" *ngIf="shoppingCart.length === 0">
     <div class="col-12 text-center">
-      <h3>Shopping Cart Empty! Please Add Items To Checkout</h3>
+      <h2 style="font-weight: 700;">SHOPPING CART</h2>
+      <p>YOUR CART IS CURRENTLY EMPTY. PLEASE ADD ITEMS TO CHECKOUT</p>
     </div>
   </div>
   <div class="row" [hidden]="shoppingCart.length === 0">
@@ -11,11 +12,11 @@
         <div class="container">
           <h5 class="section-title">Order Summary</h5>
           <div class="row item" *ngFor="let item of shoppingCart; let i = index">
-            <div class="col-3"><img class="product-image" [src]="item.images[0]"></div>
+            <div class="col-3"><img class="product-image" [src]="item.image"></div>
             <div class="col-6">
               <div class="product-title">{{item.productName}}</div>
               <div class="product-attribute" *ngFor="let attribute of item.attributes">
-                {{attribute.name | uppercase}}: {{attribute.selected}}
+                {{attribute.name | uppercase}}: {{attribute.selected | uppercase}}
               </div>
             </div>
             <div class="col-3">

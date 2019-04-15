@@ -1,10 +1,12 @@
 .shop {
   min-height: 90vh;
   background-color: white;
+  padding-bottom: 50px;
 
   .navbar {
     color: white;
     background-color: black;
+    min-width: 100%;
 
     .nav-link {
       padding: 0 15px;
@@ -92,7 +94,18 @@
 }
 
 @media (min-width: 1196px) {
-  .shop {
-    padding: 0 0 50px;
+
+}
+
+@media (max-width: 768px) {
+  .products {
+    padding: 25px 25px;
   }
 }
+@media (max-width: 576px) {
+  .shop-header {
+    padding: 0 10px;
+  }
+}
+
+

@@ -6,7 +6,9 @@ import { NgbAlertModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { AngularFireModule } from '@angular/fire';
+import {ImageZoomModule} from 'angular2-image-zoom';
 import { NgxStripeModule } from 'ngx-stripe';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule, FunctionsRegionToken } from '@angular/fire/functions';
@@ -99,8 +101,10 @@ import { CheckoutPageComponent } from './components/shop/checkout-page/checkout-
     NgbAlertModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ImageZoomModule,
     NgxPageScrollCoreModule,
-    NgxStripeModule.forRoot('pk_live_tQtMAAhPLXkmMhPJm06eWUUu')
+    NgxStripeModule.forRoot('pk_live_tQtMAAhPLXkmMhPJm06eWUUu'),
+    NgxImageZoomModule.forRoot()
   ],
   providers: [
     { provide: FunctionsRegionToken, useValue: 'us-central1' }

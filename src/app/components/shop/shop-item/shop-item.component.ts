@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, AfterViewInit, Inject, ElementRef, ViewChild} from '@angular/core';
 import {ShopService} from '../services/shop.service';
 import {ProductModel} from '../models/products.model';
 import {AngularFireFunctions} from '@angular/fire/functions';
@@ -7,13 +7,14 @@ import {AttributeModel, Datum, SelectedAttributeModel, ShoppingCartItemModel, SK
 import {forkJoin} from 'rxjs';
 import {toString} from '@ng-bootstrap/ng-bootstrap/util/util';
 import * as _ from 'lodash';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-shop-item',
   templateUrl: './shop-item.component.html',
   styleUrls: ['./shop-item.component.scss', '../../../app.component.scss']
 })
-export class ShopItemComponent implements OnInit {
+export class ShopItemComponent implements OnInit, AfterViewInit {
   product: ProductModel;
   productID: string;
   productAttributesCategories: string[] = [];
@@ -21,9 +22,14 @@ export class ShopItemComponent implements OnInit {
   skus: SKUsModel;
   productLoaded = false;
   selectedItem: ShoppingCartItemModel;
+  selectedImage = '';
+  imageLoad = false;
   selectedAttributes: SelectedAttributeModel[] = [];
+  @ViewChild('ngxImageZoomContainer') galleryContainer: ElementRef;
 
-  constructor(private shopService: ShopService, private fns: AngularFireFunctions, private route: ActivatedRoute) {
+  constructor(private shopService: ShopService, private fns: AngularFireFunctions, private route: ActivatedRoute,
+              @Inject(DOCUMENT) private document: any,
+              private el: ElementRef) {
     this.productID = this.route.snapshot.paramMap.get('productID');
     const getProduct = this.fns.httpsCallable('stripeGetProduct');
     const getSKUs = this.fns.httpsCallable('stripeGetSKUs');
@@ -31,6 +37,7 @@ export class ShopItemComponent implements OnInit {
     // CALLS TO GET PRODUCTS THEN GET SKUS OF PRODUCTS
     forkJoin(getProduct({productID: this.productID}), getSKUs({productID: this.productID})).subscribe((data: any) => {
       this.product = data[0];
+      this.selectedImage = this.product.images[0];
       // GET PRODUCT ATTRIBUTES TO HOLD IN ARRAY FOR DISPLAY
       for (let i = 0; i < this.product.attributes.length; i++) {
         const productAttribute: AttributeModel = {
@@ -40,6 +47,7 @@ export class ShopItemComponent implements OnInit {
         };
         this.productAttributes.push(productAttribute);
         this.productAttributesCategories.push(this.product.attributes[i]);
+        console.log('PRODUCT ATTRIBUTES', this.productAttributes)
       }
       // SET SELECTED PRODUCT ATTRIBUTE OF EACH ATTRIBUTE
       setTimeout(() => {
@@ -89,6 +97,16 @@ export class ShopItemComponent implements OnInit {
     }, 1000);
   }
 
+  ngAfterViewInit() {
+    const element = document.getElementsByClassName('ngxImageZoomContainer');
+    const dom = this.el.nativeElement.getElementsByClassName('ngxImageZoomContainer');
+    console.log('ELEMENT', dom);
+    // element.item().stty
+    console.log(dom[0]);
+    console.log('gallery', this.galleryContainer);
+    // dom[0].style.width = '300px';
+  }
+
   selectAttribute(attribute: string, option: string, attributes: AttributeModel[]) {
     const selectedAttribute: SelectedAttributeModel = {
       attributeName: attribute,
@@ -100,6 +118,10 @@ export class ShopItemComponent implements OnInit {
       }
     }
     this.setSelectedAttribute(this.productAttributes);
+  }
+
+  selectImage(image: string) {
+    this.selectedImage = image;
   }
 
   setSelectedAttribute(attributes: AttributeModel[]) {
@@ -116,18 +138,24 @@ export class ShopItemComponent implements OnInit {
         attributes: attributes,
         productName: this.product.name,
         images: this.product.images,
+        image: '',
         price: 0
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
         shoppingCartItem.parent = data.data[0].id;
         shoppingCartItem.price = data.data[0].price;
         this.selectedItem = shoppingCartItem;
+        console.log('IMAGE', data.data[0]);
+        shoppingCartItem.image = data.data[0].image;
       });
      }
   }
 
+  productImageLoad() {
+    this.imageLoad = true;
+    console.log('IMAGE LOADED', this.imageLoad);
+  }
   addItemToCart(attributes: AttributeModel[]) {
-    if (attributes.length > 0) {
       const attributesObj = {};
       for (const key of attributes) {
         attributesObj[key.name] = key.selected;
@@ -140,12 +168,14 @@ export class ShopItemComponent implements OnInit {
         attributes: attributes,
         productName: this.product.name,
         images: this.product.images,
-        price: 0
+        price: 0,
+        image: ''
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
         console.log('DATA', data);
         shoppingCartItem.parent = data.data[0].id;
         shoppingCartItem.price = data.data[0].price;
+        shoppingCartItem.image = data.data[0].image;
         const tempCart = this.shopService.getCart();
         if (!!tempCart.find(x => x.parent === shoppingCartItem.parent)) {
           tempCart.find(o => o.parent === shoppingCartItem.parent).quantity++;
@@ -154,6 +184,5 @@ export class ShopItemComponent implements OnInit {
         }
         this.shopService.addItemToCart(tempCart);
       });
-    }
   }
 }

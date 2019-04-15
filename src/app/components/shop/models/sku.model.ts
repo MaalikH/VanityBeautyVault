@@ -54,6 +54,7 @@ export interface ShoppingCartItemModel {
   attributes: AttributeModel[];
   productName: string;
   images: string[];
+  image: string;
   price: number;
 }
 
