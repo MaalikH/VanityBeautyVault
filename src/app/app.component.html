@@ -11,7 +11,7 @@
         <a class="nav-link" [routerLink]="['/home']">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['/services/all']">APPOINTMENTS</a>
+        <a class="nav-link" [routerLink]="['/appointments/all']">APPOINTMENTS</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/gallery']">GALLERY</a>
@@ -33,9 +33,6 @@
     </ul>
   </div>
 </nav>
-<ngb-alert *ngIf="alert.show" class="alert" (close)="closeAlert()" [type]="alert.type" [dismissible]="alert.dismissible">
-  <strong>{{alert.header}}</strong> {{ alert.message }}
-</ngb-alert>
 <!--The content below is only a placeholder and can be replaced.-->
 <router-outlet></router-outlet>
 <footer *ngIf="showNavbar">
@@ -71,3 +68,7 @@
   </div>
   </div>
 </footer>
+
+<ngb-alert *ngIf="alert.show" class="alert" (close)="closeAlert()" [type]="alert.type" [dismissible]="alert.dismissible">
+  <strong>{{alert.header}}</strong> {{ alert.message }}
+</ngb-alert>

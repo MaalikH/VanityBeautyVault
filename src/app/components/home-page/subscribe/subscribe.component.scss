@@ -1,5 +1,5 @@
 .subscribe {
-  padding: 30px;
+  padding: 50px 0 25px;
   display: flex;
   color: white;
   flex-direction: column;
@@ -7,13 +7,20 @@
   background-color: black;
 }
 
+.form-control {
+  background-color: black;
+  border-radius: 0;
+  color: white;
+}
+
+
 .form-group {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
 .info-button {
-  margin-top: 25px !important;
+  margin: 0 !important;
 }
 
 .subscribe-success {
@@ -21,4 +28,9 @@
   font-size: 24px;
   color: green;
   font-weight: 900;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-weight: 500;
 }

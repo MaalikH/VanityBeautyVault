@@ -33,7 +33,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'services/:service',
+    path: 'appointments/:service',
     component: ServicesPageComponent,
   },
   {

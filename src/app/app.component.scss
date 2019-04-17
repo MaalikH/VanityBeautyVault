@@ -43,8 +43,8 @@ p {
   animation: fadein 5s;
   border-bottom: 2px solid white;
   a {
-    font-size: 13px !important;
-    font-weight: 600;
+    font-size: 14px !important;
+    font-weight: 500;
   }
 }
 
@@ -102,9 +102,23 @@ p {
 
 .alert {
   z-index: 100;
-  margin-bottom: 0px;
   position: fixed;
-  width: 100%;
+  width: 70%;
+  top: 2%;
+  left: 15%;
+  border-radius: 0;
+}
+
+.alert-success {
+  color: white;
+  background-color: black;
+  border-color: #155724;
+}
+
+.alert-danger {
+  color: white;
+  background-color: black;
+  border-color: darkred;
 }
 
 .footer {

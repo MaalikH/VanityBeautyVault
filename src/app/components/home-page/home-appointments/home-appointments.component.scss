@@ -3,7 +3,6 @@
 .training {
   background-color: black;
   color: white;
-  border-bottom: 1px solid $color6;
 }
 
 .training-row {
@@ -12,12 +11,14 @@
 
 .training-text {
   padding: 25px 75px;
+  border-bottom: 1px solid $color6;
 }
 
 .training-image {
   background: linear-gradient(to left, black, rgba(0, 0, 0, 0) 50%), linear-gradient(to bottom, black, rgba(0, 0, 0, 0) 30%), linear-gradient(to top, black, rgba(0, 0, 0, 0) 50%), url("../../../../assets/home/IMG_6036.jpg");
   background-size: cover;
   min-height: 400px;
+  border-bottom: 1px solid $color6;
 }
 
 .training-title {
@@ -36,7 +37,7 @@ a {
   }
 
   .training-text {
-    padding: 25px 50px;
+    padding: 25px 25px;
     text-align: center;
   }
 }
