@@ -21,7 +21,6 @@ export class BlogPageComponent implements OnInit {
     this.blogService.productsObs.subscribe((data: BlogModel) => {
       this.posts = data;
       this.dataRetrieved = true;
-      console.log('Data');
     });
   }
 

@@ -49,6 +49,8 @@ import { BlogPagePostComponent } from './components/blog-page/blog-page-post/blo
 import { ShopComponent } from './components/shop/shop.component';
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
 import { CheckoutPageComponent } from './components/shop/checkout-page/checkout-page.component';
+import { ShopHomeComponent } from './components/home-page/shop-home/shop-home.component';
+import { HomeAppointmentsComponent } from './components/home-page/home-appointments/home-appointments.component';
 
 
 @NgModule({
@@ -86,6 +88,8 @@ import { CheckoutPageComponent } from './components/shop/checkout-page/checkout-
     ShopComponent,
     ShopItemComponent,
     CheckoutPageComponent,
+    ShopHomeComponent,
+    HomeAppointmentsComponent,
   ],
   imports: [
     BrowserModule,

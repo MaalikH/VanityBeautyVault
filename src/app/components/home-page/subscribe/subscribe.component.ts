@@ -14,17 +14,13 @@ export class SubscribeComponent implements OnInit {
   email: string;
   subscriber: {
     firstName: string,
-    lastName: string,
     email: string,
-    phoneNumber: number
   };
 
   constructor(private fbService: FirebaseService, private alertService: AlertService) {
     this.subscriber = {
         firstName: null,
-        lastName: null,
         email: null,
-        phoneNumber: null
     };
   }
 

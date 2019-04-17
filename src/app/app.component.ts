@@ -68,7 +68,6 @@ export class AppComponent implements OnInit {
 
     // this.shopService.getProductDataObs();
     this.shopService.productsObs.subscribe((data: any) => {
-      console.log('OBS DATA', data);
       this.shopService.getCategories(data);
     });
     this.blogService.getPostsObs();

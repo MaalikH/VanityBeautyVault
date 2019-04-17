@@ -14,7 +14,7 @@
       </div>
       <div class="row">
         <div class="col-12 text-center">
-          <button type="button" class="btn btn-light info-button sparkley1" [routerLink]="['/services/training']" (click)="trainingBtnClicked()">{{trainingInfo?.button}}</button>
+          <button type="button" class="btn btn-light info-button sparkley1" [routerLink]="['/services/training']" (click)="trainingBtnClicked()">{{trainingInfo?.button | uppercase}}</button>
         </div>
       </div>
     </div>

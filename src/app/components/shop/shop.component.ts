@@ -59,7 +59,6 @@ export class ShopComponent implements OnInit {
   getCategories(products: ProductModel[]) {
     let arr = ['all'];
     for (let i = 0; i < products.length; i++) {
-      console.log('PRODUCT', products[i])
       if (!arr.includes(products[i].metadata.category)) {
         arr.push(products[i].metadata.category);
       }
@@ -69,7 +68,6 @@ export class ShopComponent implements OnInit {
   }
 
   filterProducts(type: string) {
-    console.log('PRODUCTS', this.products);
     this.activeCategory = type;
     if (type === 'all' || type === null) {
       this.filteredProducts = this.products;
@@ -83,13 +81,12 @@ export class ShopComponent implements OnInit {
   this.pageScrollService.scroll({
     document: this.document,
     scrollTarget: '.products',
-    scrollOffset: 30
+    scrollOffset: 60
   });
 }
 
   onImageLoad() {
     this.imageLoaded = true;
-    console.log('iMage loaded', this.imageLoaded);
   }
 
   onClickProduct(productID: string) {

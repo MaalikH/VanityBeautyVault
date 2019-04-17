@@ -21,6 +21,7 @@ export class ShopService {
     livemode: true,
     metadata: {
         category: '',
+        price: 0
     },
     name: '',
     package_dimensions: '',
@@ -60,7 +61,6 @@ export class ShopService {
   getCategories(products: ProductModel[]) {
     let arr = ['all'];
     for (let i = 0; i < products.length; i++) {
-      console.log('PRODUCT', products[i])
       if (!arr.includes(products[i].metadata.category)) {
         arr.push(products[i].metadata.category);
       }

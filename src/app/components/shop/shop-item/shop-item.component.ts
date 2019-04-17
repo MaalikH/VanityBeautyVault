@@ -47,7 +47,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
         };
         this.productAttributes.push(productAttribute);
         this.productAttributesCategories.push(this.product.attributes[i]);
-        console.log('PRODUCT ATTRIBUTES', this.productAttributes)
       }
       // SET SELECTED PRODUCT ATTRIBUTE OF EACH ATTRIBUTE
       setTimeout(() => {
@@ -98,13 +97,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const element = document.getElementsByClassName('ngxImageZoomContainer');
-    const dom = this.el.nativeElement.getElementsByClassName('ngxImageZoomContainer');
-    console.log('ELEMENT', dom);
-    // element.item().stty
-    console.log(dom[0]);
-    console.log('gallery', this.galleryContainer);
-    // dom[0].style.width = '300px';
   }
 
   selectAttribute(attribute: string, option: string, attributes: AttributeModel[]) {
@@ -153,7 +145,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
 
   productImageLoad() {
     this.imageLoad = true;
-    console.log('IMAGE LOADED', this.imageLoad);
   }
   addItemToCart(attributes: AttributeModel[]) {
       const attributesObj = {};
