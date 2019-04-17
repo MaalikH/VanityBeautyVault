@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
+  count = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  numOfImgLoaded = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  imageLoaded() {
+    this.numOfImgLoaded++;
   }
 
 }

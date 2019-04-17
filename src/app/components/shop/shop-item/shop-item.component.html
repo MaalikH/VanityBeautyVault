@@ -1,7 +1,8 @@
 <div class="container shop-item">
   <div class="row" *ngIf="productLoaded">
     <div class="col-md-7">
-      <img [hidden]="!imageLoad" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="selectedItem?.image" [src]="selectedItem?.image" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
+      <img [hidden]="!imageLoad || selectedItem?.image === null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="selectedItem?.image" [src]="selectedItem?.image" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
+      <img [hidden]="!imageLoad && selectedItem?.image !== null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="product.images[0]" [src]="product.images[0]" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
       <!--
      <ngx-image-zoom
        [thumbImage] = selectedItem?.image
@@ -33,7 +34,7 @@
       </div>
       <div class="attributes-container d-flex flex-column" *ngIf="product.attributes.length > 0; let i = index">
         <div class="attribute-container" *ngFor="let attribute of productAttributes">
-          <p class="product-attribute">SELECT:{{attribute.name | uppercase}}:</p>
+          <p class="product-attribute">SELECT {{attribute.name | uppercase}}:</p>
           <button class="btn btn-type" *ngFor="let option of attribute.options"
                   [ngClass]="{'active': option === attribute.selected}"
                   (click)="selectAttribute(attribute.name, option, productAttributes)">{{option | uppercase}}

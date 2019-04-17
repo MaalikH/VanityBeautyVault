@@ -1,7 +1,7 @@
 @import '../../../variables';
 
 .services {
-  padding: 72px;
+  padding: 50px 0 25px;
   background-color: black;
   color: white;
   background-image: url("../../../../assets/background/RoseBGDARKER.png");
@@ -10,7 +10,7 @@
   border-bottom: 1px solid $color6 ;
 
   .display-4 {
-    padding-bottom: 30px;
+    padding-bottom: 0;
   }
 
   .service-icon {
@@ -23,6 +23,10 @@
 
   .service {
     min-height: 20vh;
+  }
+
+  .info-button {
+    margin: 25px 0 25px !important;
   }
 
 }

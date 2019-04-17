@@ -1,7 +1,16 @@
 .portfolio {
-  padding: 0px 0 0 0;
+  padding: 25px 0 0 0;
   background-color: black;
   color: white;
+  background: url("../../../assets/background/RoseBGDARKER.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.gallery-image {
+  max-width: 100%;
+  border: 2px solid white;
+  margin-bottom: 25px;
 }
 
 a {
@@ -90,5 +99,13 @@ a {
 @media (min-width: 1200px) {
   .landscapeImage {
     height: 55vh;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .container-fluid {
+    background-attachment: scroll;
+    background-size: contain;
   }
 }

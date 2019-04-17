@@ -37,6 +37,7 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
     // CALLS TO GET PRODUCTS THEN GET SKUS OF PRODUCTS
     forkJoin(getProduct({productID: this.productID}), getSKUs({productID: this.productID})).subscribe((data: any) => {
       this.product = data[0];
+      console.log('DATA', data);
       this.selectedImage = this.product.images[0];
       // GET PRODUCT ATTRIBUTES TO HOLD IN ARRAY FOR DISPLAY
       for (let i = 0; i < this.product.attributes.length; i++) {
