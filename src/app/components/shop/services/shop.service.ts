@@ -53,6 +53,9 @@ export class ShopService {
     });
   }
 
+  addToShoppingCart(newvalue: ShoppingCartItemModel) {
+  }
+
   getProductDataObs() {
     const getProducts = this.fns.httpsCallable('stripeGetProducts');
     this.productsObs = getProducts({});
@@ -65,7 +68,6 @@ export class ShopService {
         arr.push(products[i].metadata.category);
       }
     }
-    console.log('CATEGORIES', arr);
     this.categories.next(arr);
   }
 
@@ -73,7 +75,16 @@ export class ShopService {
     return this.shoppingCart.value;
   }
 
-  addItemToCart(skus: ShoppingCartItemModel[]) {
-    this.shoppingCart.next(skus);
+  addItemToCart(shoppingCartItem: ShoppingCartItemModel) {
+    let tempCart = this.shoppingCart.getValue();
+    if (!!tempCart.find(x => x.parent === shoppingCartItem.parent)) {
+      tempCart.find(o => o.parent === shoppingCartItem.parent).quantity++;
+    } else {
+      tempCart[tempCart.length] = shoppingCartItem;
+    }
+  }
+
+  resetShoppingCartItem() {
+    this.shoppingCart.next([]);
   }
 }

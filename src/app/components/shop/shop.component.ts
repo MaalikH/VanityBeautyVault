@@ -22,6 +22,8 @@ export class ShopComponent implements OnInit {
   imageLoaded = false;
   categories: string[];
   activeCategory = 'all';
+  lashLength = ['9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '8-15', '10-17', '14-19'];
+  lashCurl = ['C', 'D', 'CC', 'DD'];
 
   constructor(private fns: AngularFireFunctions, private shopService: ShopService, private router: Router,
               private pageScrollService: PageScrollService, @Inject(DOCUMENT) private document: any,
@@ -46,9 +48,31 @@ export class ShopComponent implements OnInit {
       this.getCategories(this.products);
       this.filterProducts(this.activeCategory);
     });
+    // this.createSKUS('prod_EuHHFr4xxjQQ4M');
     setTimeout( () => {
       this.productsLoaded = true;
-    }, 500);
+    }, 500)
+
+  }
+
+  createSKUS(productID: string) {
+    for (let i = 0; i < this.lashLength.length; i++) {
+      for (let j = 0; j < this.lashCurl.length; j++) {
+        const createSKU = this.fns.httpsCallable('stripeCreateSKU');
+        createSKU({
+          id: productID,
+          attributes: {
+            length: this.lashLength[i],
+            curl: this.lashCurl[j]
+          },
+          price: 1999,
+          inventory: {
+            type: 'infinite'
+          }
+        }).subscribe((data: any) => {
+        });
+      }
+    }
   }
 
   changeCategory(category: string) {
@@ -74,7 +98,6 @@ export class ShopComponent implements OnInit {
     } else {
       this.filteredProducts = _.filter(this.products, item => item.metadata.category === this.activeCategory);
     }
-    console.log('FILTERD PRODUCTS', this.filteredProducts);
   }
 
   scrollToProducts() {
@@ -95,7 +118,6 @@ export class ShopComponent implements OnInit {
   }
 
   scrollToElement(el: HTMLElement): void {
-    console.log(el);
     el.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 

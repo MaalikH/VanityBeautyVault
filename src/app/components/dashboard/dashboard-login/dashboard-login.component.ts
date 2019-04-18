@@ -31,7 +31,6 @@ export class DashboardLoginComponent implements OnInit {
         this.authGuard.LoggedIn = true;
         this.router.navigate(['admin/dashboard']);
       })
-      .catch((err) => console.log('error: ' + err));
   }
 
 }

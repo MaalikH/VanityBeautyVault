@@ -1,8 +1,8 @@
 <div class="container shop-item">
   <div class="row" *ngIf="productLoaded">
     <div class="col-md-7">
-      <img [hidden]="!imageLoad || selectedItem?.image === null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="selectedItem?.image" [src]="selectedItem?.image" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
-      <img [hidden]="!imageLoad && selectedItem?.image !== null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="product.images[0]" [src]="product.images[0]" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
+      <img [hidden]="!skuImageLoaded || selectedItem?.image === null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="selectedItem?.image" [src]="selectedItem?.image" [style.width]="'75%'" [style.height]="'auto'" (load)="skuImageLoad()">
+      <img [hidden]="(!productLoaded) || selectedItem?.image !== null" [lensStyle]="'LENS'" [minZoomLevel]=".1" [maxZoomLevel]="1.5" [lensWidth]="100" [lensHeight]="100" [imageZoom]="product?.images[0]" [src]="product?.images[0]" [style.width]="'75%'" [style.height]="'auto'" (load)="productImageLoad()">
       <!--
      <ngx-image-zoom
        [thumbImage] = selectedItem?.image
@@ -30,7 +30,8 @@
         <button class="btn info-button" [routerLink]="['/shop/products']">Back To Shop</button>
         <h3 class="product-name">{{product?.name}}</h3>
         <p class="product-caption">{{product?.caption}}</p>
-        <p class="product-price">${{product?.metadata.price / 100 | number: '1.2-2' }}</p>
+        <p class="product-price" [hidden]="selectedItem?.inventory.quantity === 0">${{product?.metadata.price / 100 | number: '1.2-2' }}</p>
+        <p class="product-price" [hidden]="selectedItem?.inventory.quantity > 0 || selectedItem?.inventory.type === 'infinite'">Sold Out</p>
       </div>
       <div class="attributes-container d-flex flex-column" *ngIf="product.attributes.length > 0; let i = index">
         <div class="attribute-container" *ngFor="let attribute of productAttributes">
@@ -42,7 +43,7 @@
         </div>
         <button class="btn btn-dark" *ngFor="">Attribute</button>
       </div>
-      <button class="btn info-button cart-button" (click)="addItemToCart(productAttributes)">ADD TO BAG</button>
+      <button class="btn info-button cart-button" [hidden]="selectedItem?.inventory.quantity === 0" (click)="addItemToCart(productAttributes)">ADD TO BAG</button>
       <button class="btn info-button cart-button d-lg-none" [routerLink]="['/checkout']">VIEW CART</button>
       <div class="description-container">
         <p class="description-title">DESCRIPTION</p>

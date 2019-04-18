@@ -56,6 +56,7 @@ export interface ShoppingCartItemModel {
   images: string[];
   image: string;
   price: number;
+  inventory: any;
 }
 
 

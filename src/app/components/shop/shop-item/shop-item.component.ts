@@ -21,9 +21,12 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
   productAttributes: AttributeModel[] = [];
   skus: SKUsModel;
   productLoaded = false;
+  productImageLoaded = false;
+  skuImageLoaded = false;
   selectedItem: ShoppingCartItemModel;
   selectedImage = '';
   imageLoad = false;
+  tempCart = []
   selectedAttributes: SelectedAttributeModel[] = [];
   @ViewChild('ngxImageZoomContainer') galleryContainer: ElementRef;
 
@@ -37,7 +40,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
     // CALLS TO GET PRODUCTS THEN GET SKUS OF PRODUCTS
     forkJoin(getProduct({productID: this.productID}), getSKUs({productID: this.productID})).subscribe((data: any) => {
       this.product = data[0];
-      console.log('DATA', data);
       this.selectedImage = this.product.images[0];
       // GET PRODUCT ATTRIBUTES TO HOLD IN ARRAY FOR DISPLAY
       for (let i = 0; i < this.product.attributes.length; i++) {
@@ -56,7 +58,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
         }
       }, 10);
       // FOR DISPLAY PURPOSES
-      this.productLoaded = true;
 
       this.skus = data[1];
       // LOOP THROUGH SKUS
@@ -81,7 +82,7 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
                 object.options.push(objectOption);
               }
             }
-            this.productLoaded = true;
+            // this.productLoaded = true;
           }
         }
       }
@@ -118,7 +119,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
   }
 
   setSelectedAttribute(attributes: AttributeModel[]) {
-    if (attributes.length > 0) {
       const attributesObj = {};
       for (const key of attributes) {
         attributesObj[key.name] = key.selected;
@@ -132,20 +132,25 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
         productName: this.product.name,
         images: this.product.images,
         image: '',
-        price: 0
+        price: 0,
+        inventory: null
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
         shoppingCartItem.parent = data.data[0].id;
         shoppingCartItem.price = data.data[0].price;
         this.selectedItem = shoppingCartItem;
-        console.log('IMAGE', data.data[0]);
         shoppingCartItem.image = data.data[0].image;
+        shoppingCartItem.inventory = data.data[0].inventory;
+        this.productLoaded = true;
       });
      }
-  }
 
   productImageLoad() {
-    this.imageLoad = true;
+    this.productImageLoaded = true;
+  }
+
+  skuImageLoad() {
+    this.skuImageLoaded = true;
   }
   addItemToCart(attributes: AttributeModel[]) {
       const attributesObj = {};
@@ -161,20 +166,16 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
         productName: this.product.name,
         images: this.product.images,
         price: 0,
-        image: ''
+        image: '',
+        inventory: null
       };
       getSKUByCategory({productID: this.productID, attributes: attributesObj}).subscribe((data: any) => {
-        console.log('DATA', data);
         shoppingCartItem.parent = data.data[0].id;
         shoppingCartItem.price = data.data[0].price;
         shoppingCartItem.image = data.data[0].image;
-        const tempCart = this.shopService.getCart();
-        if (!!tempCart.find(x => x.parent === shoppingCartItem.parent)) {
-          tempCart.find(o => o.parent === shoppingCartItem.parent).quantity++;
-        } else {
-          tempCart.push(shoppingCartItem);
-        }
-        this.shopService.addItemToCart(tempCart);
+        shoppingCartItem.inventory = data.data[0].inventory;
+        shoppingCartItem.attributes = data.data[0].attributes;
+        this.shopService.addItemToCart(shoppingCartItem);
       });
   }
 }

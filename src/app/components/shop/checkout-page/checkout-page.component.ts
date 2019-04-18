@@ -24,6 +24,7 @@ export class CheckoutPageComponent implements OnInit {
   paymentSubmitted = false;
   paymentSameAsBilling = true;
   purchaseTryng = false;
+  objectKeys = Object.keys;
   shipping = {
     firstName: '',
     lastName: '',
@@ -128,7 +129,7 @@ export class CheckoutPageComponent implements OnInit {
                 });
                 this.router.navigate(['/home']);
                 this.alertService.newAlert('success', 'Your order was successful, please check your email for confirmation', true, true, 'Purchase Success!');
-                this.shopService.addItemToCart([]);
+                this.shopService.resetShoppingCartItem();
                 this.purchaseTryng = false;
               }, err => {
                 this.purchaseTryng = false;

@@ -12,12 +12,15 @@
         <div class="container">
           <h5 class="section-title">Order Summary</h5>
           <div class="row item" *ngFor="let item of shoppingCart; let i = index">
-            <div class="col-3"><img class="product-image" [src]="item.image"></div>
+            <div class="col-3">
+              <img class="product-image" [src]="item?.image" [hidden]="item?.image === null">
+              <img class="product-image" [src]="item?.images[0]" [hidden]="item?.image !== null">
+            </div>
             <div class="col-6">
               <div class="product-title">{{item.productName}}</div>
-              <div class="product-attribute" *ngFor="let attribute of item.attributes">
-                {{attribute.name | uppercase}}: {{attribute.selected | uppercase}}
-              </div>
+              <div class="product-attribute" *ngFor="let item of item?.attributes | keyvalue">
+              {{item.key | uppercase }}: {{item.value | uppercase}}
+            </div>
             </div>
             <div class="col-3">
               <p>${{( item.price * item.quantity) / 100 | number : '1.2-2' }}</p>
