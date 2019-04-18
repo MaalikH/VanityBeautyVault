@@ -31,8 +31,10 @@ a {
 }
 @media (max-width: 576px) {
 
-  .d-none {
-    display: none;
+  .training-image {
+    background: url("../../../../assets/home/training.jpg");
+    background-size: cover;
+    height: 50vh;
   }
 
   .training-text {

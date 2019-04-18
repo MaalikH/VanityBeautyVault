@@ -6,6 +6,7 @@ import {AttributeModel, ShoppingCartItemModel} from '../models/sku.model';
 import {AngularFireFunctions} from '@angular/fire/functions';
 import { AlertService } from '../../../services/alert-service/alert.service';
 import {Router} from '@angular/router';
+import index from '@angular/cli/lib/cli';
 
 @Component({
   selector: 'app-checkout-page',
@@ -91,7 +92,9 @@ export class CheckoutPageComponent implements OnInit {
       });
 
     this.shopService.shoppingCartObs.subscribe((data: ShoppingCartItemModel[]) => {
-      this.shoppingCart = data;
+      this.shoppingCart = data;  this.shoppingCart = data;
+      console.log('DATA', data);
+      this.shoppingCartTotal = 0;
       for (let i = 0; i < this.shoppingCart.length; i++) {
         const itemTotal = this.shoppingCart[i].price * this.shoppingCart[i].quantity;
         this.shoppingCartTotal = this.shoppingCartTotal + itemTotal;
@@ -163,10 +166,8 @@ export class CheckoutPageComponent implements OnInit {
     this.paymentSubmitted = true;
   }
 
-  removeItemFromCart(item: ShoppingCartItemModel, index: number) {
-    let tempCart = this.shopService.getCart();
-    tempCart.splice(index, 1);
-    // console.log('ENW CARRT', tempCart);
+  removeItemFromCart(item: ShoppingCartItemModel, itemIndex: number) {
+    this.shopService.removeFromCart(item, itemIndex);
   }
 
 }

@@ -8,6 +8,7 @@ import {forkJoin} from 'rxjs';
 import {toString} from '@ng-bootstrap/ng-bootstrap/util/util';
 import * as _ from 'lodash';
 import {DOCUMENT} from '@angular/common';
+import {AlertService} from '../../../services/alert-service/alert.service';
 
 @Component({
   selector: 'app-shop-item',
@@ -32,7 +33,7 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
 
   constructor(private shopService: ShopService, private fns: AngularFireFunctions, private route: ActivatedRoute,
               @Inject(DOCUMENT) private document: any,
-              private el: ElementRef) {
+              private el: ElementRef, private alertService: AlertService) {
     this.productID = this.route.snapshot.paramMap.get('productID');
     const getProduct = this.fns.httpsCallable('stripeGetProduct');
     const getSKUs = this.fns.httpsCallable('stripeGetSKUs');
@@ -91,11 +92,10 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.shopService.shoppingCartObs.subscribe((data: any) => {
-      // console.log('SHOPPING CART CHANGED', data);
     });
     setTimeout(() => {
       this.setSelectedAttribute(this.productAttributes);
-    }, 1000);
+    }, 1500);
   }
 
   ngAfterViewInit() {
@@ -177,5 +177,6 @@ export class ShopItemComponent implements OnInit, AfterViewInit {
         shoppingCartItem.attributes = data.data[0].attributes;
         this.shopService.addItemToCart(shoppingCartItem);
       });
+    this.alertService.newAlert('success', 'The item was added to your cart!', true, true, 'Item Added!');
   }
 }

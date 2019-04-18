@@ -31,9 +31,13 @@ a {
 }
 @media (max-width: 576px) {
 
-  .d-none {
-    display: none;
+  .training-image {
+    background: url("../../../../assets/home/IMG_6034.jpg");
+    background-size: cover;
+    height: 50vh;
+    display: block;
   }
+
 
   .training-text {
     padding: 25px 25px;

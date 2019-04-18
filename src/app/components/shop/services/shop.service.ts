@@ -81,7 +81,14 @@ export class ShopService {
       tempCart.find(o => o.parent === shoppingCartItem.parent).quantity++;
     } else {
       tempCart[tempCart.length] = shoppingCartItem;
+      this.shoppingCart.next(tempCart);
     }
+  }
+
+  removeFromCart(shoppingCartItem: ShoppingCartItemModel, index: number) {
+    let tempCart = this.shoppingCart.getValue();
+    tempCart.splice(index, 1);
+    this.shoppingCart.next(tempCart);
   }
 
   resetShoppingCartItem() {
